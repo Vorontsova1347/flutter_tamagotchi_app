@@ -2,18 +2,13 @@ part of 'btn_bloc.dart';
 
 @immutable
 abstract class BtnEvent {}
+enum Param{cheerfulness, satiety, healthe, play}
 
 class AddPercentageEvent extends BtnEvent {
-  double state;
+  final double state = 0.2;
 
-  void _addPercentage(){
-    if (state != 1){
-      state += 0.2;
-    }
-    if (state > 1){
-      state = 1;
-    }
-  }
-  AddPercentageEvent({required this.state});
+  Param param;
+
+  AddPercentageEvent(this.param);
 }
 

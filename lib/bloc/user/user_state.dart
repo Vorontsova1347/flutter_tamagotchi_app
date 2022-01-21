@@ -20,3 +20,7 @@ class RegistrationSuccessful extends UserInitial {
 class RegistrationFailed extends UserInitial {
 
 }
+
+class LogOutSuccessful extends UserInitial {
+
+}

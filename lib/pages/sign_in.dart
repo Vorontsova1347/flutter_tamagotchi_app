@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/tamagotchi_maker.dart';
 import 'package:flutter_app/pages/tamagotchi_profile.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -53,15 +54,15 @@ class SignInScreen extends StatelessWidget{
                         )
                     )),
                 ElevatedButton(
-                    onPressed: () {Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => TamaProfScreen()), ModalRoute.withName('/profile'),);},
-                    child:
-                    Text(
-                        'SIGN IN',
-                        style: GoogleFonts.righteous(
-                            fontSize: 24,
-                            textStyle: const TextStyle(color: Colors.white))
-                    )
-                )
+                    onPressed: () {Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => TamagotchiMaker()), ModalRoute.withName('/maker'),);},
+                    child: Text('LOG IN',
+                    style: GoogleFonts.righteous(
+                        fontSize: 24,
+                        textStyle: const TextStyle(color: Colors.white))),
+                    style: ButtonStyle(
+                        backgroundColor:
+                        MaterialStateProperty.all(Colors.black)),
+                      )
               ],
             ),
           ),

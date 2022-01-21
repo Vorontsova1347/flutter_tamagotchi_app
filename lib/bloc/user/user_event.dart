@@ -16,3 +16,7 @@ class RegistrationEvent extends UserEvent {
 
   RegistrationEvent({required this.login, required this.password});
 }
+
+class LogOutEvent extends UserEvent{
+
+}

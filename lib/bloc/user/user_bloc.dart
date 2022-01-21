@@ -25,5 +25,10 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       // TODO: implement event handler
       emit(RegistrationSuccessful());
     });
+
+    on<LogOutEvent>((event, emit) {
+      // TODO: implement event handler
+      emit(LogOutSuccessful());
+    });
   }
 }
