@@ -5,7 +5,7 @@ abstract class BtnEvent {}
 enum Param{cheerfulness, satiety, healthe, play}
 
 class AddPercentageEvent extends BtnEvent {
-  final double state = 0.2;
+  final double state = 0.1;
 
   Param param;
 

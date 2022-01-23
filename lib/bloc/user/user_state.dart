@@ -24,3 +24,11 @@ class RegistrationFailed extends UserInitial {
 class LogOutSuccessful extends UserInitial {
 
 }
+
+class TamaAddSuccessful extends UserInitial{
+
+}
+
+class TamaAddFailed extends UserInitial{
+
+}

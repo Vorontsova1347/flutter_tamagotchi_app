@@ -1,11 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bloc/tama_events/btn_bloc.dart';
+import 'package:flutter_app/bloc/user/user_bloc.dart';
 import 'package:flutter_app/widgets/profile_control_btns.dart';
 import 'package:flutter_app/widgets/profile_widget.dart';
 import 'package:flutter_app/widgets/status_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+
+import '../main.dart';
+import 'home.dart';
+import 'log_in.dart';
 
 class TamaProfScreen extends StatelessWidget{
   Widget build(BuildContext context) {
@@ -21,6 +27,13 @@ class TamaProfScreen extends StatelessWidget{
                       width: 50,
                       height: 50,
                       color: Colors.red,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.red,),
+                        onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => MyHomePage()));},
+                            child: Icon(Icons.close, color: Colors.white)
                     ),
                     Container(
                         margin: const EdgeInsets.only(

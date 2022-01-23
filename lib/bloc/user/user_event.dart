@@ -20,3 +20,10 @@ class RegistrationEvent extends UserEvent {
 class LogOutEvent extends UserEvent{
 
 }
+
+class TamaEvent extends UserEvent{
+  final String name;
+  final bool flag_b;
+
+  TamaEvent({required this.name, required this.flag_b});
+}

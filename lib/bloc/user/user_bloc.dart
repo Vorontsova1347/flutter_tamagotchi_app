@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -23,12 +24,31 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     on<RegistrationEvent>((event, emit) {
       // TODO: implement event handler
-      emit(RegistrationSuccessful());
+      if (event.login != 'admin' && event.password != '123456789'){
+        print(event.login);
+        print(event.password);
+        print('Success registration');
+        emit(RegistrationSuccessful());
+      }else{
+        emit(RegistrationFailed());
+      }
+
     });
 
     on<LogOutEvent>((event, emit) {
       // TODO: implement event handler
       emit(LogOutSuccessful());
+    });
+
+    on<TamaEvent>((event, emit){
+      if(event.name != null && event.flag_b != (null as bool)){
+        print(event.name);
+        print(event.flag_b);
+        print('Successful tama add');
+        emit(TamaAddSuccessful());
+      }else{
+        emit(TamaAddFailed());
+      }
     });
   }
 }
