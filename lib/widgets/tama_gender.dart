@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TamaGender extends StatefulWidget {
-  bool flag_boy = Null as bool;
+  bool flag_boy = true;
 
   @override
   State<TamaGender> createState() => _TamaGenderState();

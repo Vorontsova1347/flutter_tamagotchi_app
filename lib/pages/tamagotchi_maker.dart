@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TamagotchiMaker extends StatelessWidget{
   TextEditingController nameController = TextEditingController();
+  TamaGender gender_widget = TamaGender();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class TamagotchiMaker extends StatelessWidget{
                           )),
                       SizedBox(
                         height: 50,
-                        child: TamaGender(),
+                        child: gender_widget,
                       ),
                       Container(
                         height: 50,
@@ -76,7 +77,7 @@ class TamagotchiMaker extends StatelessWidget{
                               BlocProvider.of<UserBloc>(context)
                                   .add(TamaEvent(
                                   name: nameController.text.trim(),
-                                  flag_b: TamaGender().flag_boy));
+                                  flag_b: gender_widget.flag_boy));
                             },
                             style: ButtonStyle(
                                 backgroundColor:

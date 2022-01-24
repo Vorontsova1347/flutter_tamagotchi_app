@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/bloc/tama_events/btn_bloc.dart';
 import 'package:flutter_app/pages/tama_splash.dart';
+import 'package:flutter_app/repository/user_rep.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'bloc/user/user_bloc.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider<UserBloc>(create: (BuildContext context) => UserBloc()),
+          BlocProvider<UserBloc>(create: (BuildContext context) => UserBloc(UserRep())),
           BlocProvider<BtnBloc>(create: (BuildContext context) => BtnBloc())
         ],
         child: MaterialApp(
