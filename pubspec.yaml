@@ -8,21 +8,23 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  mwwm: ^2.0.0
-  surf_injector: ^1.0.0
-  surf_util: ^1.0.3
   flutter:
     sdk: flutter
 
   flutter_svg: ^1.0.3
+  mwwm: ^2.0.0
   relation: ^3.1.0
+  surf_util: ^1.0.3
+  surf_injector: ^1.0.0
+  device_preview: ^1.0.0
+
 
 dev_dependencies:
   fake_async: ^1.2.0
   flutter_native_splash: ^2.0.2
-  surf_lint_rules: ^1.4.1
   flutter_test:
     sdk: flutter
+  surf_lint_rules: ^1.4.1
 
 flutter:
 
@@ -33,3 +35,20 @@ flutter:
     - assets/images/
 
 fonts:
+  - family: Roboto
+    fonts:
+      - asset: assets/font/Roboto-Regular.ttf
+      - asset: assets/font/Roboto-Black.ttf
+      - asset: assets/font/Roboto-BlackItalic.ttf
+      - asset: assets/font/Roboto-BoldItalic.ttf
+      - asset: assets/font/Roboto-Light.ttf
+      - asset: assets/font/Roboto-LightItalic.ttf
+      - asset: assets/font/Roboto-Medium.ttf
+        weight: 500
+      - asset: assets/font/Roboto-MediumItalic.ttf
+      - asset: assets/font/Roboto-Thin.ttf
+      - asset: assets/font/Roboto-ThinItalic.ttf
+      - asset: assets/font/Roboto-Bold.ttf
+        weight: 700
+      - asset: assets/font/Roboto-Italic.ttf
+        style: italic
