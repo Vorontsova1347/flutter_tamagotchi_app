@@ -11,7 +11,7 @@ class AppIcons {
   static const String statusPlay = '$_basePath/status_play.svg';
   static const String statusSleep = '$_basePath/status_sleep.svg';
 
-  static const String splashIcon = '$_basePath/splash_icon.svg';
+  static const String splashLogo = '$_basePath/splash_logo.svg';
 
-  static const String _basePath = 'assets/svg';
+  static const String _basePath = 'assets/icons';
 }
