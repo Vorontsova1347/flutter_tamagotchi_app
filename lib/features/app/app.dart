@@ -9,19 +9,19 @@ import 'package:tamagochi_app/features/app/app_widget_model.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 
-/// [AppWidgetModel] корневого приложения
+/// [Widget] of app
 class App extends CoreMwwmWidget<AppWidgetModel> {
-  App({Key? key})
+  const App({Key? key})
       : super(
           key: key,
-          widgetModelBuilder: (_) => AppWidgetModel(),
+          widgetModelBuilder: createAppWidgetModel,
         );
 
   @override
   WidgetState<App, AppWidgetModel> createWidgetState() => _AppState();
 }
 
-/// [WidgetState] модельки корневого приложения
+/// [WidgetState] of [App]
 class _AppState extends WidgetState<App, AppWidgetModel> {
   @override
   Widget build(BuildContext context) {
