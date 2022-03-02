@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamagochi_app/features/common/screens/splash/splash_screen_route.dart';
 
 class AppRouter {
   static const String loginScreen = '/login';
@@ -12,7 +13,6 @@ class AppRouter {
     // TODO(svetlana): add onboarding screen route
     //onboardingScreen: (_) => OnboardingScreenRoute(),
 
-    // TODO(svetlana): add splashScreen screen route
-    //splashScreen: (_) => SplashScreenRoute(),
+    splashScreen: (_) => SplashScreenRoute(),
   };
 }
