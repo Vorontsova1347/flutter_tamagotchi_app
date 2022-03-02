@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamagochi_app/assets/colors/app_colors.dart';
 
-const defaultFontFamily = 'Roboto';
+const defaultFontFamily = 'Righteous';
 
 ///TODO(svetlana): update temp textStyle
 /// Стили текста.
