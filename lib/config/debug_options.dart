@@ -1,4 +1,5 @@
-/// (ВРЕМЕННЫЙ) Класс настроек для дебага
+///TODO(svetlana): update temp debugOptions
+////// (ВРЕМЕННЫЙ) Класс настроек для дебага
 class DebugOptions {
   static const bool showPerformanceOverlay = false;
   static const bool debugShowMaterialGrid = false;
