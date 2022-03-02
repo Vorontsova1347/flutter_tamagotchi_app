@@ -35,10 +35,16 @@ class AppTypography {
   );
   static final smallBold = textBold.copyWith(
     fontSize: 14.0,
+  );
+  static final smallBoldWhite = smallBold.copyWith(
     color: AppColors.white,
   );
-  static final hugeBold = textBold.copyWith(
+  static final normalBoldGunmetal = textBold.copyWith(
     fontSize: 24.0,
+    color: AppColors.gunmetal,
+  );
+  static final hugeBold = textBold.copyWith(
+    fontSize: 28.0,
     color: AppColors.gunmetal,
   );
 }
