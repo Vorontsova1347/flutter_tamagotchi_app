@@ -25,7 +25,7 @@ Future<void> runApplication() async {
       enabled: DebugOptions.devicePreview,
       builder: (context) => Injector(
         component: AppComponent(),
-        builder: (ctx) => App(),
+        builder: (ctx) => const App(),
       ),
     ),
   );
