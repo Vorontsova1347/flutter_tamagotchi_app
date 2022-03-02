@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamagochi_app/assets/colors/app_colors.dart';
 import 'package:tamagochi_app/assets/themes/app_typography.dart';
 
+///TODO(svetlana): update temp appTheme
 /// Стандартная тема приложения
 final defaultTheme = ThemeData(
   fontFamily: defaultFontFamily,
@@ -11,6 +12,7 @@ final defaultTheme = ThemeData(
   colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.gray11),
 );
 
+///TODO(svetlana): update temp textTheme
 // Тема для отображения текста.
 final _textTheme = TextTheme(
   headline1: AppTypography.textNormal18W500,
