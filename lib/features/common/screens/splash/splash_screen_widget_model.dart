@@ -6,6 +6,7 @@ import 'package:tamagochi_app/assets/res/app_icons.dart';
 import 'package:tamagochi_app/assets/strings/app_strings.dart';
 import 'package:tamagochi_app/assets/themes/app_typography.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
+import 'package:tamagochi_app/features/navigation/app_router.dart';
 import 'splash_screen.dart';
 
 /// [WidgetModelBuilder] of [SplashScreenWidgetModel] for [SplashScreen]
@@ -14,6 +15,9 @@ SplashScreenWidgetModel createSplashScreenWidgetModel(BuildContext context) {
     navigator:
         Injector.of<AppComponent>(context).component.navigator.currentState!,
     scaffoldKey: Injector.of<AppComponent>(context).component.scaffoldKey,
+    designHeight: Injector.of<AppComponent>(context).component.designHeight,
+    designWidth: Injector.of<AppComponent>(context).component.designWidth,
+    minTextAdapt: Injector.of<AppComponent>(context).component.minTextAdapt,
   );
 }
 
@@ -22,22 +26,25 @@ class SplashScreenWidgetModel extends WidgetModel
     with TickerProviderWidgetModelMixin {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final NavigatorState navigator;
+  final double designWidth;
+  final double designHeight;
+  final bool minTextAdapt;
   late final AnimationController fadeController;
 
   final backgroundColor = AppColors.deepLemon;
 
   final titleTopText = AppStrings.splashScreenTitleTopText.toUpperCase();
   final titleBottomText = AppStrings.splashScreenTitleBottomText.toUpperCase();
-  final titleStyle = AppTypography.hugeBold;
-
-  final logoHeight = 270.0;
-  final logoWidth = 270.0;
+  final titleStyle = AppTypography.uberBoldBlack;
   final logoPath = AppIcons.splashLogo;
 
   final _fadeDuration = 2000;
   final _splashScreenDuration = 1500;
 
   SplashScreenWidgetModel({
+    required this.designWidth,
+    required this.designHeight,
+    required this.minTextAdapt,
     required this.navigator,
     required this.scaffoldKey,
   }) : super(const WidgetModelDependencies());
@@ -63,7 +70,7 @@ class SplashScreenWidgetModel extends WidgetModel
     await fadeController.forward();
     await _delay(_splashScreenDuration);
 
-    //_openScreen(AppRouter.loginScreen);
+    _openScreen(AppRouter.authScreen);
   }
 
   void _openScreen(String routeName) {

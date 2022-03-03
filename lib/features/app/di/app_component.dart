@@ -5,4 +5,8 @@ import 'package:surf_injector/surf_injector.dart';
 class AppComponent extends Component {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final navigator = GlobalKey<NavigatorState>();
+
+  final designWidth = 360.0;
+  final designHeight = 640.0;
+  final minTextAdapt = true;
 }
