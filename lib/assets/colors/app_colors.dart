@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 /// Набор цветов, используемых в приложении
@@ -15,5 +16,6 @@ class AppColors {
   static const Color palatinateBlue = Color.fromRGBO(48, 55, 227, 1);
   static const Color pastelYellow = Color.fromRGBO(253, 241, 149, 1);
   static const Color mediumVioletRed = Color.fromRGBO(192, 2, 150, 1);
+  static const Color black = Colors.black;
   static const Color candyAppleRed = Color.fromRGBO(255, 6, 6, 1);
 }

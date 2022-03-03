@@ -47,4 +47,16 @@ class AppTypography {
     fontSize: 28.0,
     color: AppColors.gunmetal,
   );
+  static final uberBoldBlack = textBold.copyWith(
+    fontSize: 36.0,
+    color: AppColors.black,
+  );
+  static final normalBoldWhite = textBold.copyWith(
+    fontSize: 24.0,
+    color: AppColors.white,
+  );
+  static final normalBoldBlack = textBold.copyWith(
+    fontSize: 24.0,
+    color: AppColors.black,
+  );
 }
