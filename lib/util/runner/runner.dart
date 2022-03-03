@@ -12,14 +12,12 @@ import 'package:tamagochi_app/features/app/app.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 
 Future<void> runApplication() async {
-  /// Нужно вызвать для избежания потери ориентации
-  WidgetsFlutterBinding.ensureInitialized();
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  /// Заморозка ориентации
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
-  FlutterNativeSplash.removeAfter(_init);
-
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await _init();
+  FlutterNativeSplash.remove();
+  
   runApp(
     DevicePreview(
       enabled: DebugOptions.devicePreview,
@@ -31,6 +29,9 @@ Future<void> runApplication() async {
   );
 }
 
-/// Метод для инициализации начальных ресурсов\ прогрузки
+/// All the dependencies and instances, used in whole app, should be initialized here
 // ignore: avoid_void_async
-void _init(BuildContext context) async {}
+Future<void> _init() async {
+  // Orientation freeze
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+}
