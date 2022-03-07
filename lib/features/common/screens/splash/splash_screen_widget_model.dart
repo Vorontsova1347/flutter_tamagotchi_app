@@ -5,6 +5,7 @@ import 'package:tamagochi_app/assets/colors/app_colors.dart';
 import 'package:tamagochi_app/assets/res/app_icons.dart';
 import 'package:tamagochi_app/assets/strings/app_strings.dart';
 import 'package:tamagochi_app/assets/themes/app_typography.dart';
+import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 import 'splash_screen.dart';
@@ -15,9 +16,6 @@ SplashScreenWidgetModel createSplashScreenWidgetModel(BuildContext context) {
     navigator:
         Injector.of<AppComponent>(context).component.navigator.currentState!,
     scaffoldKey: Injector.of<AppComponent>(context).component.scaffoldKey,
-    designHeight: Injector.of<AppComponent>(context).component.designHeight,
-    designWidth: Injector.of<AppComponent>(context).component.designWidth,
-    minTextAdapt: Injector.of<AppComponent>(context).component.minTextAdapt,
   );
 }
 
@@ -26,10 +24,10 @@ class SplashScreenWidgetModel extends WidgetModel
     with TickerProviderWidgetModelMixin {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final NavigatorState navigator;
-  final double designWidth;
-  final double designHeight;
-  final bool minTextAdapt;
   late final AnimationController fadeController;
+  final double designWidth = ScreenUtilOptions.defaultDesignWidth;
+  final double designHeight = ScreenUtilOptions.defaultDesignHeight;
+  final bool minTextAdapt = ScreenUtilOptions.defaultMinTextAdapt;
 
   final backgroundColor = AppColors.deepLemon;
 
@@ -42,9 +40,6 @@ class SplashScreenWidgetModel extends WidgetModel
   final _splashScreenDuration = 1500;
 
   SplashScreenWidgetModel({
-    required this.designWidth,
-    required this.designHeight,
-    required this.minTextAdapt,
     required this.navigator,
     required this.scaffoldKey,
   }) : super(const WidgetModelDependencies());
