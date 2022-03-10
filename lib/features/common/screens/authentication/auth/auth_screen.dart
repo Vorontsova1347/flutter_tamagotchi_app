@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mwwm/mwwm.dart';
-import 'package:tamagochi_app/features/common/screens/auth/auth_screen_widget_model.dart';
+import 'package:tamagochi_app/features/common/screens/authentication/auth/auth_screen_widget_model.dart';
 
 /// [Widget] of splash screen
 class AuthScreen extends CoreMwwmWidget<AuthScreenWidgetModel> {

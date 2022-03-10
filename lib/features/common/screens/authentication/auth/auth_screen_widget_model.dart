@@ -7,6 +7,7 @@ import 'package:tamagochi_app/assets/strings/app_strings.dart';
 import 'package:tamagochi_app/assets/themes/app_typography.dart';
 import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
+import 'package:tamagochi_app/features/navigation/app_router.dart';
 import 'auth_screen.dart';
 
 /// [WidgetModelBuilder] of [AuthScreenWidgetModel] for [AuthScreen]
@@ -38,7 +39,9 @@ class AuthScreenWidgetModel extends WidgetModel {
     required this.navigator,
   }) : super(const WidgetModelDependencies());
 
-  void buttonOnTap() {}
+  void buttonOnTap() {
+    navigator.pushNamed(AppRouter.loginScreen);
+  }
 
   void underButtonOnTap() {}
 }
