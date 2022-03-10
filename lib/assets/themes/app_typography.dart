@@ -60,7 +60,11 @@ class AppTypography {
     color: AppColors.black,
   );
   static final normalBoldViolinBrown = textBold.copyWith(
-    fontSize: 22.0,
+    fontSize: 24.0,
     color: AppColors.violinBrown,
+  );
+  static final createScreenRadioButtonTextStyle = textBold.copyWith(
+    fontSize: 24.0,
+    color: AppColors.white,
   );
 }
