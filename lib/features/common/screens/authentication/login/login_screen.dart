@@ -51,6 +51,7 @@ class _LoginScreenState
           ),
           backgroundColor: wm.backgroundColor,
           body: AuthBodyWidget(
+            isLoginScreen: true,
             navigator: wm.navigator,
             loginTextController: wm.loginTextController,
             passwordTextController: wm.passwordTextController,

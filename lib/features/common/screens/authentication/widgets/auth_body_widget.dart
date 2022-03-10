@@ -11,6 +11,7 @@ class AuthBodyWidget extends CoreMwwmWidget<AuthBodyWidgetModel> {
   final TextEditingController loginTextController;
   final TextEditingController passwordTextController;
   final NavigatorState navigator;
+  final bool isLoginScreen;
 
   AuthBodyWidget({
     required this.navigator,
@@ -18,10 +19,12 @@ class AuthBodyWidget extends CoreMwwmWidget<AuthBodyWidgetModel> {
     required this.passwordTextController,
     required this.buttonText,
     required this.buttonFunction,
+    required this.isLoginScreen,
     Key? key,
   }) : super(
           key: key,
           widgetModelBuilder: (_) => createAuthBodyWidgetModel(
+            isLoginScreen: isLoginScreen,
             navigator: navigator,
             loginTextController: loginTextController,
             passwordTextController: passwordTextController,

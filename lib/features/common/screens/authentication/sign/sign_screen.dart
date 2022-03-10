@@ -50,6 +50,7 @@ class _SignScreenState extends WidgetState<SignScreen, SignScreenWidgetModel> {
           ),
           backgroundColor: wm.backgroundColor,
           body: AuthBodyWidget(
+            isLoginScreen: false,
             navigator: wm.navigator,
             loginTextController: wm.loginTextController,
             passwordTextController: wm.passwordTextController,
