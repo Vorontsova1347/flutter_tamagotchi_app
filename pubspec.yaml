@@ -17,14 +17,20 @@ dependencies:
   relation: ^3.1.0
   surf_injector: ^1.0.0
   surf_util: ^1.0.3
+  http: ^0.13.3
+  shared_preferences: ^2.0.7
+  dio: ^4.0.0
 
 
 dev_dependencies:
+  json_serializable: ^4.1.0
+  build_runner: ^2.1.7
   fake_async: ^1.2.0
   flutter_native_splash: ^2.0.2
   flutter_test:
     sdk: flutter
   surf_lint_rules: ^1.4.1
+  retrofit_generator: ^2.0.1
 
 flutter:
   uses-material-design: true
