@@ -92,9 +92,9 @@ class _CreateScreenState
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       hintText: wm.nameHintText,
-                      contentPadding: EdgeInsets.only(
-                        left: textfieldHeight / 3,
-                        bottom: textfieldHeight / 2,
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: textfieldHeight / 3,
+                        vertical: textfieldHeight / 10,
                       ),
                       counterText: '',
                       border: const OutlineInputBorder(),

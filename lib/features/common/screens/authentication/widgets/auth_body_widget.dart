@@ -85,9 +85,9 @@ class _AuthBodyWidgetState
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 hintText: wm.loginHintText,
-                contentPadding: EdgeInsets.only(
-                  left: textfieldHeight / 3,
-                  bottom: textfieldHeight / 2,
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: textfieldHeight / 3,
+                  vertical: textfieldHeight / 10,
                 ),
                 counterText: '',
                 border: const OutlineInputBorder(),
@@ -126,9 +126,9 @@ class _AuthBodyWidgetState
               obscureText: true,
               decoration: InputDecoration(
                 hintText: wm.passwordHintText,
-                contentPadding: EdgeInsets.only(
-                  left: textfieldHeight / 3,
-                  bottom: textfieldHeight / 2, // HERE THE IMPORTANT PART
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: textfieldHeight / 3,
+                  vertical: textfieldHeight / 10, // HERE THE IMPORTANT PART
                 ),
                 counterText: '',
                 focusedBorder: const OutlineInputBorder(),
