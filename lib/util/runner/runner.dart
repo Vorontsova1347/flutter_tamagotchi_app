@@ -2,12 +2,10 @@
 
 import 'dart:async';
 
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:surf_injector/surf_injector.dart';
-import 'package:tamagochi_app/config/debug_options.dart';
 import 'package:tamagochi_app/features/app/app.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 
@@ -17,14 +15,11 @@ Future<void> runApplication() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await _init();
   FlutterNativeSplash.remove();
-  
+
   runApp(
-    DevicePreview(
-      enabled: DebugOptions.devicePreview,
-      builder: (context) => Injector(
-        component: AppComponent(),
-        builder: (ctx) => const App(),
-      ),
+    Injector(
+      component: AppComponent(),
+      builder: (ctx) => const App(),
     ),
   );
 }

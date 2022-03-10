@@ -8,5 +8,4 @@ class DebugOptions {
   static const bool showSemanticsDebugger = false;
   static const bool debugShowCheckedModeBanner = false;
   static const bool debugUseMocker = false;
-  static const bool devicePreview = false;
 }
