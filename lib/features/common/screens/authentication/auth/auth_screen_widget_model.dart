@@ -32,16 +32,18 @@ class AuthScreenWidgetModel extends WidgetModel {
   final underButtonTextStyle = AppTypography.normalBoldBlack;
   final buttonColor = AppColors.black;
 
-  final buttonText = AppStrings.authScreenButtonText.toUpperCase();
-  final underButtonText = AppStrings.authScreenUnderButtonText.toUpperCase();
+  final buttonText = AppStrings.loginScreenButtonText.toUpperCase();
+  final underButtonText = AppStrings.signInScreenButtonText.toUpperCase();
 
   AuthScreenWidgetModel({
     required this.navigator,
   }) : super(const WidgetModelDependencies());
 
-  void buttonOnTap() {
-    navigator.pushNamed(AppRouter.loginScreen);
+  void onSignInTap() {
+    navigator.pushNamed(AppRouter.signInScreen);
   }
 
-  void underButtonOnTap() {}
+  void onLoginTap() {
+    navigator.pushNamed(AppRouter.loginScreen);
+  }
 }
