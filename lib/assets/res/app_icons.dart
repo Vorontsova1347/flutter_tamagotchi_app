@@ -12,6 +12,7 @@ class AppIcons {
   static const String statusSleep = '$_basePath/status_sleep.svg';
 
   static const String splashLogo = '$_basePath/splash_logo.svg';
+  static const String arrowBack = '$_basePath/arrow_back.svg';
 
   static const String _basePath = 'assets/icons';
 }
