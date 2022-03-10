@@ -59,4 +59,8 @@ class AppTypography {
     fontSize: 24.0,
     color: AppColors.black,
   );
+  static final normalBoldViolinBrown = textBold.copyWith(
+    fontSize: 22.0,
+    color: AppColors.violinBrown,
+  );
 }
