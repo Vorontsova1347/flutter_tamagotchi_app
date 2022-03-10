@@ -51,7 +51,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                   height: sizedBoxTopHeight,
                 ),
                 GestureDetector(
-                  onTap: wm.buttonOnTap,
+                  onTap: wm.onLoginTap,
                   child: Container(
                     height: buttonHeight,
                     width: buttonWidth,
@@ -71,7 +71,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                   height: sizedBoxBottomHeight,
                 ),
                 GestureDetector(
-                  onTap: wm.underButtonOnTap,
+                  onTap: wm.onSignInTap,
                   child: Center(
                     child: Text(
                       wm.underButtonText,
