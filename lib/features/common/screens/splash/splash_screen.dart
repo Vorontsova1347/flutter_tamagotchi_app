@@ -31,6 +31,7 @@ class _SplashScreenState
       final logoWidth = 360.0.h;
       
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           key: wm.scaffoldKey,
           backgroundColor: wm.backgroundColor,
           body: Center(
