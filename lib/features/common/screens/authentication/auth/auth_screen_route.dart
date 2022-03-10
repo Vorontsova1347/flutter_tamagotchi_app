@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamagochi_app/features/common/screens/auth/auth_screen.dart';
+import 'package:tamagochi_app/features/common/screens/authentication/auth/auth_screen.dart';
 
 /// [MaterialPageRoute] for [AuthScreen].
 class AuthScreenRoute extends MaterialPageRoute<void> {
