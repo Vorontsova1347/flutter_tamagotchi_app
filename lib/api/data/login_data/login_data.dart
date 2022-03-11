@@ -14,5 +14,10 @@ class LoginData {
   factory LoginData.fromJson(Map<String, dynamic> json) =>
       _$LoginDataFromJson(json);
 
+  @override
+  String toString() {
+    return 'LoginData: {\n name: $name,\n password: $password,\n}';
+  }
+
   Map<String, dynamic> toJson() => _$LoginDataToJson(this);
 }
