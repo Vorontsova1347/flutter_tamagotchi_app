@@ -6,14 +6,13 @@ part of 'tamagochi_load.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TamagochiLoad _$TamagochiLoadFromJson(Map<String, dynamic> json) {
-  return TamagochiLoad(
-    (json['sleep'] as num?)?.toDouble(),
-    (json['health'] as num?)?.toDouble(),
-    (json['game'] as num?)?.toDouble(),
-    (json['food'] as num?)?.toDouble(),
-  );
-}
+TamagochiLoad _$TamagochiLoadFromJson(Map<String, dynamic> json) =>
+    TamagochiLoad(
+      sleep: (json['sleep'] as num).toDouble(),
+      health: (json['health'] as num).toDouble(),
+      game: (json['game'] as num).toDouble(),
+      food: (json['food'] as num).toDouble(),
+    );
 
 Map<String, dynamic> _$TamagochiLoadToJson(TamagochiLoad instance) =>
     <String, dynamic>{
