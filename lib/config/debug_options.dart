@@ -1,5 +1,6 @@
-///TODO(svetlana): update temp debugOptions
-////// (ВРЕМЕННЫЙ) Класс настроек для дебага
+import 'package:flutter/material.dart';
+
+/// Temp options to configure [MaterialApp] parameters
 class DebugOptions {
   static const bool showPerformanceOverlay = false;
   static const bool debugShowMaterialGrid = false;
@@ -7,5 +8,4 @@ class DebugOptions {
   static const bool checkerboardOffscreenLayers = false;
   static const bool showSemanticsDebugger = false;
   static const bool debugShowCheckedModeBanner = false;
-  static const bool debugUseMocker = false;
 }
