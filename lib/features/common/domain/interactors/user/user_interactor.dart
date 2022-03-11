@@ -1,4 +1,5 @@
 import 'package:tamagochi_app/api/data/login_data/login_data.dart';
+import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
 import 'package:tamagochi_app/api/data/user_dto/user_dto.dart';
 import 'package:tamagochi_app/features/common/domain/entities/user.dart';
 import 'package:tamagochi_app/features/common/domain/mappers/user_mapper.dart';
@@ -57,5 +58,10 @@ class UserInteractor {
     return response == null
         ? Tuple2(false, toUser(UserDto()))
         : Tuple2(true, toUser(response));
+  }
+
+  /// TODO: реализовать проверку на сущ. регистрацию
+  Future<bool> userRegister(RegistrationData registrationData) async {
+    return _userRepository.tryToRegister(registrationData);
   }
 }

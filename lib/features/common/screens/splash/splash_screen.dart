@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mwwm/mwwm.dart';
+import 'package:tamagochi_app/assets/colors/app_colors.dart';
+import 'package:tamagochi_app/assets/res/app_icons.dart';
+import 'package:tamagochi_app/assets/strings/app_strings.dart';
+import 'package:tamagochi_app/assets/themes/app_typography.dart';
+import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/common/screens/splash/splash_screen_widget_model.dart';
 
 /// [Widget] of splash screen
@@ -23,17 +28,16 @@ class _SplashScreenState
     extends WidgetState<SplashScreen, SplashScreenWidgetModel> {
   @override
   Widget build(BuildContext context) {
-
     return ScreenUtilInit(
-      designSize: Size(wm.designWidth, wm.designHeight),
-      minTextAdapt: wm.minTextAdapt,
+      designSize: ScreenUtilOptions.designSize,
+      minTextAdapt: ScreenUtilOptions.defaultMinTextAdapt,
       builder: () {
-      final logoWidth = 360.0.h;
-      
+        final logoWidth = 360.0.h;
+
         return Scaffold(
           resizeToAvoidBottomInset: false,
           key: wm.scaffoldKey,
-          backgroundColor: wm.backgroundColor,
+          backgroundColor: AppColors.deepLemon,
           body: Center(
             child: FadeTransition(
               opacity: wm.fadeController,
@@ -41,15 +45,15 @@ class _SplashScreenState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    wm.titleTopText,
-                    style: wm.titleStyle,
+                    AppStrings.splashScreenTitleTopText.toUpperCase(),
+                    style: AppTypography.uberBoldBlack,
                   ),
                   Text(
-                    wm.titleBottomText,
-                    style: wm.titleStyle,
+                    AppStrings.splashScreenTitleBottomText.toUpperCase(),
+                    style: AppTypography.uberBoldBlack,
                   ),
                   SvgPicture.asset(
-                    wm.logoPath,
+                    AppIcons.splashLogo,
                     width: logoWidth,
                   ),
                 ],

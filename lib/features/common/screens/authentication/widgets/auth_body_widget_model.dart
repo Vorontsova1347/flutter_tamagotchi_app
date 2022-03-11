@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mwwm/mwwm.dart';
-import 'package:tamagochi_app/assets/colors/app_colors.dart';
-import 'package:tamagochi_app/assets/res/app_icons.dart';
-import 'package:tamagochi_app/assets/strings/app_strings.dart';
-import 'package:tamagochi_app/assets/themes/app_typography.dart';
+import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/widgets/auth_body_widget.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 
@@ -18,7 +15,7 @@ AuthBodyWidgetModel createAuthBodyWidgetModel({
   required bool isLoginScreen,
 }) {
   return AuthBodyWidgetModel(
-    isLoginScreen:isLoginScreen,
+    isLoginScreen: isLoginScreen,
     navigator: navigator,
     loginTextController: loginTextController,
     passwordTextController: passwordTextController,
@@ -32,21 +29,16 @@ class AuthBodyWidgetModel extends WidgetModel {
   final NavigatorState navigator;
   final TextEditingController loginTextController;
   final TextEditingController passwordTextController;
-  final bool isLoginScreen;
-  final loginTextLengthLimit = 24;
-  final passwordTextLengthLimit = 32;
-  final logoPath = AppIcons.profilePictureNone;
-  final arrowBack = AppIcons.arrowBack;
-  final backgroundColor = AppColors.deepLemon;
-  final buttonTextStyle = AppTypography.normalBoldWhite;
-  final underButtonTextStyle = AppTypography.normalBoldBlack;
-  final textFormFieldTextStyle = AppTypography.normalBoldViolinBrown;
-  final buttonColor = AppColors.black;
-  final loginHintText = AppStrings.loginHintText.toUpperCase();
-  final passwordHintText = AppStrings.passwordHintText.toUpperCase();
-
-  final String buttonText;
   final Future<bool> Function(String login, String password) buttonFunction;
+  final bool isLoginScreen;
+  final String buttonText;
+
+  final loginTextLengthLimit = 24;
+  final loginTextLengthMin = 1;
+  final passwordTextLengthLimit = 32;
+  final passwordTextLengthMin = 4;
+
+  bool _isLoading = false;
 
   AuthBodyWidgetModel({
     required this.isLoginScreen,
@@ -58,24 +50,55 @@ class AuthBodyWidgetModel extends WidgetModel {
   }) : super(const WidgetModelDependencies());
 
   Future<void> onButtonTap() async {
-    if (isLoginScreen) {
-      await _loginCycle();
-    } else {
-      await _signinCycle();
+    if (!_isLoading) {
+      final login = _getLogin();
+      final password = _getPassword();
+
+      if (_isValidLogin(login) && _isValidPassword(password)) {
+        _isLoading = true;
+
+        if (isLoginScreen) {
+          await _loginCycle(login, password);
+        } else {
+          await _signinCycle(login, password);
+        }
+
+        _isLoading = false;
+      }
     }
   }
 
-  Future<void> _loginCycle() async {
-    final login = loginTextController.value.text;
-    final password = passwordTextController.value.text;
+  Future<void> _loginCycle(String login, String password) async {
     if (await buttonFunction(
       login,
       password,
-    )) {}
-    passwordTextController.clear();
+    )) {
+      await navigator.pushReplacementNamed(AppRouter.mainScreen);
+    }
+    _clearPassword();
   }
 
-  Future<void> _signinCycle() async {
-    await navigator.pushNamed(AppRouter.createScreen);
+  Future<void> _signinCycle(String login, String password) async {
+    await buttonFunction(login, password);
+
+    await navigator.pushNamed(
+      AppRouter.createScreen,
+      arguments: RegistrationData(
+        name: login,
+        password: password,
+      ),
+    );
   }
+
+  bool _isValidLogin(String login) {
+    return login.length >= loginTextLengthMin;
+  }
+
+  bool _isValidPassword(String password) {
+    return password.length >= passwordTextLengthMin;
+  }
+
+  String _getLogin() => loginTextController.value.text;
+  String _getPassword() => passwordTextController.value.text;
+  void _clearPassword() => passwordTextController.clear();
 }

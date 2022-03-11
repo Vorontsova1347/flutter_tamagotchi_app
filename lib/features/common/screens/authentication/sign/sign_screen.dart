@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mwwm/mwwm.dart';
 import 'package:tamagochi_app/assets/colors/app_colors.dart';
+import 'package:tamagochi_app/assets/res/app_icons.dart';
+import 'package:tamagochi_app/assets/strings/app_strings.dart';
+import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/sign/sign_screen_widget_model.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/widgets/auth_body_widget.dart';
 
@@ -25,8 +28,8 @@ class _SignScreenState extends WidgetState<SignScreen, SignScreenWidgetModel> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(wm.designWidth, wm.designHeight),
-      minTextAdapt: wm.minTextAdapt,
+      designSize: ScreenUtilOptions.designSize,
+      minTextAdapt: ScreenUtilOptions.defaultMinTextAdapt,
       builder: () {
         final appBarHeight = 50.0.h;
         final arrowBackPadding = 12.0.r;
@@ -43,18 +46,18 @@ class _SignScreenState extends WidgetState<SignScreen, SignScreenWidgetModel> {
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: arrowBackPadding),
                 child: SvgPicture.asset(
-                  wm.arrowBack,
+                  AppIcons.arrowBack,
                 ),
               ),
             ),
           ),
-          backgroundColor: wm.backgroundColor,
+          backgroundColor: AppColors.deepLemon,
           body: AuthBodyWidget(
             isLoginScreen: false,
             navigator: wm.navigator,
             loginTextController: wm.loginTextController,
             passwordTextController: wm.passwordTextController,
-            buttonText: wm.buttonText,
+            buttonText: AppStrings.signInScreenButtonText.toUpperCase(),
             buttonFunction: wm.signUp,
           ),
         );

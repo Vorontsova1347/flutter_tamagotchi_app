@@ -3,6 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mwwm/mwwm.dart';
+import 'package:tamagochi_app/assets/colors/app_colors.dart';
+import 'package:tamagochi_app/assets/res/app_icons.dart';
+import 'package:tamagochi_app/assets/strings/app_strings.dart';
+import 'package:tamagochi_app/assets/themes/app_typography.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/widgets/auth_body_widget_model.dart';
 
 class AuthBodyWidget extends CoreMwwmWidget<AuthBodyWidgetModel> {
@@ -59,7 +63,7 @@ class _AuthBodyWidgetState
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(
-            wm.logoPath,
+            AppIcons.profilePictureNone,
             height: logoHeight,
             width: logoWidth,
           ),
@@ -73,7 +77,7 @@ class _AuthBodyWidgetState
               borderRadius: BorderRadius.circular(buttonRadius),
             ),
             child: TextFormField(
-              style: wm.textFormFieldTextStyle,
+              style: AppTypography.normalBoldViolinBrown,
               controller: wm.loginTextController,
               maxLength: wm.loginTextLengthLimit,
               inputFormatters: [
@@ -84,7 +88,7 @@ class _AuthBodyWidgetState
               ],
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                hintText: wm.loginHintText,
+                hintText: AppStrings.loginHintText.toUpperCase(),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: textfieldHeight / 3,
                   vertical: textfieldHeight / 10,
@@ -94,7 +98,7 @@ class _AuthBodyWidgetState
                 focusedBorder: const OutlineInputBorder(),
                 disabledBorder: const OutlineInputBorder(),
                 enabledBorder: const OutlineInputBorder(),
-                fillColor: wm.backgroundColor,
+                fillColor: AppColors.deepLemon,
                 filled: true,
               ),
             ),
@@ -109,7 +113,7 @@ class _AuthBodyWidgetState
               borderRadius: BorderRadius.circular(buttonRadius),
             ),
             child: TextFormField(
-              style: wm.textFormFieldTextStyle,
+              style: AppTypography.normalBoldViolinBrown,
               controller: wm.passwordTextController,
               maxLength: wm.passwordTextLengthLimit,
               inputFormatters: [
@@ -125,16 +129,16 @@ class _AuthBodyWidgetState
               keyboardType: TextInputType.text,
               obscureText: true,
               decoration: InputDecoration(
-                hintText: wm.passwordHintText,
+                hintText: AppStrings.passwordHintText.toUpperCase(),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: textfieldHeight / 3,
-                  vertical: textfieldHeight / 10, // HERE THE IMPORTANT PART
+                  vertical: textfieldHeight / 10, 
                 ),
                 counterText: '',
                 focusedBorder: const OutlineInputBorder(),
                 disabledBorder: const OutlineInputBorder(),
                 enabledBorder: const OutlineInputBorder(),
-                fillColor: wm.backgroundColor,
+                fillColor: AppColors.deepLemon,
                 filled: true,
               ),
             ),
@@ -148,13 +152,13 @@ class _AuthBodyWidgetState
               height: buttonHeight,
               width: buttonWidth,
               decoration: BoxDecoration(
-                color: wm.buttonColor,
+                color: AppColors.black,
                 borderRadius: BorderRadius.circular(buttonRadius),
               ),
               child: Center(
                 child: Text(
                   wm.buttonText,
-                  style: wm.buttonTextStyle,
+                  style: AppTypography.normalBoldWhite,
                 ),
               ),
             ),

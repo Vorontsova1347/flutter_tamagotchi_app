@@ -1,19 +1,31 @@
+// ignore_for_file: avoid_bool_literals_in_conditional_expressions
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mwwm/mwwm.dart';
 import 'package:relation/relation.dart';
+import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
 import 'package:tamagochi_app/assets/colors/app_colors.dart';
+import 'package:tamagochi_app/assets/res/app_icons.dart';
+import 'package:tamagochi_app/assets/strings/app_strings.dart';
+import 'package:tamagochi_app/assets/themes/app_typography.dart';
+import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/create/create_screen_widget_model.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/create/widgets/radio_item_widget.dart';
 
 class CreateScreen extends CoreMwwmWidget<CreateScreenWidgetModel> {
-  const CreateScreen({
+  final RegistrationData registrationData;
+
+  CreateScreen({
+    required this.registrationData,
     Key? key,
   }) : super(
           key: key,
-          widgetModelBuilder: createCreateScreenWidgetModel,
+          widgetModelBuilder: (ctx) {
+            return createCreateScreenWidgetModel(ctx, registrationData);
+          },
         );
 
   @override
@@ -27,8 +39,8 @@ class _CreateScreenState
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(wm.designWidth, wm.designHeight),
-      minTextAdapt: wm.minTextAdapt,
+      designSize: ScreenUtilOptions.designSize,
+      minTextAdapt: ScreenUtilOptions.defaultMinTextAdapt,
       builder: () {
         final appBarHeight = 50.0.h;
         final arrowBackPadding = 12.0.r;
@@ -54,18 +66,18 @@ class _CreateScreenState
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: arrowBackPadding),
                 child: SvgPicture.asset(
-                  wm.arrowBack,
+                  AppIcons.arrowBack,
                 ),
               ),
             ),
           ),
-          backgroundColor: wm.backgroundColor,
+          backgroundColor: AppColors.deepLemon,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset(
-                  wm.logoPath,
+                  AppIcons.profilePictureNone,
                   height: logoHeight,
                   width: logoWidth,
                 ),
@@ -79,7 +91,7 @@ class _CreateScreenState
                     borderRadius: BorderRadius.circular(buttonRadius),
                   ),
                   child: TextFormField(
-                    style: wm.textFormFieldTextStyle,
+                    style: AppTypography.normalBoldViolinBrown,
                     controller: wm.nameTextController,
                     maxLength: wm.nameTextLengthLimit,
                     inputFormatters: [
@@ -90,7 +102,7 @@ class _CreateScreenState
                     ],
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      hintText: wm.nameHintText,
+                      hintText: AppStrings.nameHintText.toUpperCase(),
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: textfieldHeight / 3,
                         vertical: textfieldHeight / 10,
@@ -100,7 +112,7 @@ class _CreateScreenState
                       focusedBorder: const OutlineInputBorder(),
                       disabledBorder: const OutlineInputBorder(),
                       enabledBorder: const OutlineInputBorder(),
-                      fillColor: wm.backgroundColor,
+                      fillColor: AppColors.deepLemon,
                       filled: true,
                     ),
                   ),
@@ -117,7 +129,8 @@ class _CreateScreenState
                         GestureDetector(
                           onTap: wm.onRadioFirstTap,
                           child: RadioItemWidget(
-                            buttonText: wm.radioFirstText,
+                            buttonText: AppStrings.createScreenRadioFirstText
+                                .toUpperCase(),
                             isSelected: wm.radioPickState.value == null
                                 ? false
                                 : wm.radioPickState.value!,
@@ -126,7 +139,8 @@ class _CreateScreenState
                         GestureDetector(
                           onTap: wm.onRadioSecondTap,
                           child: RadioItemWidget(
-                            buttonText: wm.radioSecondText,
+                            buttonText: AppStrings.createScreenRadioSecondText
+                                .toUpperCase(),
                             isSelected: wm.radioPickState.value == null
                                 ? false
                                 : !wm.radioPickState.value!,
@@ -142,13 +156,13 @@ class _CreateScreenState
                     height: buttonHeight,
                     width: buttonWidth,
                     decoration: BoxDecoration(
-                      color: wm.buttonColor,
+                      color: AppColors.black,
                       borderRadius: BorderRadius.circular(buttonRadius),
                     ),
                     child: Center(
                       child: Text(
-                        wm.buttonText,
-                        style: wm.buttonTextStyle,
+                        AppStrings.createScreenButtonText.toUpperCase(),
+                        style: AppTypography.normalBoldWhite,
                       ),
                     ),
                   ),

@@ -2,42 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:mwwm/mwwm.dart';
 import 'package:relation/relation.dart';
 import 'package:surf_injector/surf_injector.dart';
-import 'package:tamagochi_app/assets/colors/app_colors.dart';
-import 'package:tamagochi_app/assets/res/app_icons.dart';
-import 'package:tamagochi_app/assets/strings/app_strings.dart';
-import 'package:tamagochi_app/assets/themes/app_typography.dart';
-import 'package:tamagochi_app/config/screen_util_options.dart';
+import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
+import 'package:tamagochi_app/features/common/domain/interactors/user/user_interactor.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/create/create_screen.dart';
+import 'package:tamagochi_app/features/navigation/app_router.dart';
 
 /// [WidgetModelBuilder] of [CreateScreenWidgetModel] for [CreateScreen]
-CreateScreenWidgetModel createCreateScreenWidgetModel(BuildContext context) {
+CreateScreenWidgetModel createCreateScreenWidgetModel(
+    BuildContext context, RegistrationData registrationData) {
   return CreateScreenWidgetModel(
+    registrationData: registrationData,
     navigator:
         Injector.of<AppComponent>(context).component.navigator.currentState!,
+    userInteractor: Injector.of<AppComponent>(context).component.userInteractor,
   );
 }
 
 class CreateScreenWidgetModel extends WidgetModel {
-  final NavigatorState navigator;
-  final double designWidth = ScreenUtilOptions.defaultDesignWidth;
-  final double designHeight = ScreenUtilOptions.defaultDesignHeight;
-  final bool minTextAdapt = ScreenUtilOptions.defaultMinTextAdapt;
-  final textFormFieldTextStyle = AppTypography.normalBoldViolinBrown;
   final nameTextController = TextEditingController();
-  final nameTextLengthLimit = 24;
-  final nameHintText = AppStrings.nameHintText.toUpperCase();
-  final logoPath = AppIcons.profilePictureNone;
-  final arrowBack = AppIcons.arrowBack;
-  final backgroundColor = AppColors.deepLemon;
-  final buttonText = AppStrings.createScreenButtonText.toUpperCase();
-  final buttonColor = AppColors.black;
-  final buttonTextStyle = AppTypography.normalBoldWhite;
   final radioPickState = StreamedState<bool?>(null);
-  final radioFirstText = AppStrings.createScreenRadioFirstText.toUpperCase();
-  final radioSecondText = AppStrings.createScreenRadioSecondText.toUpperCase();
+  final nameTextLengthLimit = 24;
+  final nameTextLengthMin = 1;
+  final RegistrationData registrationData;
+  final NavigatorState navigator;
+  final UserInteractor userInteractor;
+
+  bool _isLoading = false;
 
   CreateScreenWidgetModel({
+    required this.userInteractor,
+    required this.registrationData,
     required this.navigator,
   }) : super(const WidgetModelDependencies());
 
@@ -58,6 +53,24 @@ class CreateScreenWidgetModel extends WidgetModel {
   }
 
   Future<void> onButtonTap() async {
-    if (radioPickState.value != null) {}
+    if (!_isLoading) {
+      _isLoading = true;
+      if (radioPickState.value != null || !_isValidName(_getName())) {
+        await userInteractor.userRegister(registrationData);
+        if (await userInteractor.tryToLogin(
+          login: registrationData.name,
+          password: registrationData.password,
+        )) {
+          await navigator.pushReplacementNamed(AppRouter.mainScreen);
+        }
+      }
+      _isLoading = false;
+    }
   }
+
+  bool _isValidName(String name) {
+    return name.length > nameTextLengthMin;
+  }
+
+  String _getName() => nameTextController.value.text;
 }
