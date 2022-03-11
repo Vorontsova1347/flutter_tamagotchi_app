@@ -14,5 +14,10 @@ class RegistrationData {
   factory RegistrationData.fromJson(Map<String, dynamic> json) =>
       _$RegistrationDataFromJson(json);
 
+  @override
+  String toString() {
+    return 'RegistrationData: {\n name: $name,\n password: $password,\n}';
+  }
+
   Map<String, dynamic> toJson() => _$RegistrationDataToJson(this);
 }
