@@ -6,6 +6,7 @@ import 'package:tamagochi_app/assets/res/app_icons.dart';
 import 'package:tamagochi_app/assets/strings/app_strings.dart';
 import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
+import 'package:tamagochi_app/features/common/domain/interactors/user/user_interactor.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/login/login_screen.dart';
 
 /// [WidgetModelBuilder] of [LoginScreenWidgetModel] for [LoginScreen]
@@ -13,6 +14,7 @@ LoginScreenWidgetModel createLoginScreenWidgetModel(BuildContext context) {
   return LoginScreenWidgetModel(
     navigator:
         Injector.of<AppComponent>(context).component.navigator.currentState!,
+    userInteractor: Injector.of<AppComponent>(context).component.userInteractor,
   );
 }
 
@@ -25,12 +27,14 @@ class LoginScreenWidgetModel extends WidgetModel {
   final buttonText = AppStrings.loginScreenButtonText.toUpperCase();
   final loginTextController = TextEditingController();
   final passwordTextController = TextEditingController();
+  final UserInteractor userInteractor;
 
   final logoPath = AppIcons.profilePictureNone;
   final arrowBack = AppIcons.arrowBack;
   final backgroundColor = AppColors.deepLemon;
 
   LoginScreenWidgetModel({
+    required this.userInteractor,
     required this.navigator,
   }) : super(const WidgetModelDependencies());
 
@@ -47,9 +51,9 @@ class LoginScreenWidgetModel extends WidgetModel {
   }
 
   Future<bool> loginUp(String login, String password) async {
-    /// login
-    debugPrint('$login : $password');
-    
-    return true;
+    return userInteractor.tryToLogin(
+      login: login,
+      password: password,
+    );
   }
 }
