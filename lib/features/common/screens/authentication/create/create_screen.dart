@@ -40,7 +40,6 @@ class _CreateScreenState
         final textfieldHeight = 42.0.h;
         final textfieldWidth = 320.0.w;
         final sizedBoxTopHeight = 42.h;
-        final sizedBoxBottomHeight = 18.h;
         final betweenFieldsHeight = 24.h;
 
         return Scaffold(

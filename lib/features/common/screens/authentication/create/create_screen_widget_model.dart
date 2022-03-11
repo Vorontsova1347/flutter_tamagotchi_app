@@ -57,10 +57,7 @@ class CreateScreenWidgetModel extends WidgetModel {
     }
   }
 
-  void onButtonTap() {
-    if (radioPickState.value != null) {
-      //;
-      //navigator.push
-    }
+  Future<void> onButtonTap() async {
+    if (radioPickState.value != null) {}
   }
 }
