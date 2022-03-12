@@ -7,11 +7,13 @@ part of 'user_dto.dart';
 // **************************************************************************
 
 UserDto _$UserDtoFromJson(Map<String, dynamic> json) => UserDto(
-      id: json['id'] as int?,
-      name: json['name'] as String?,
-      tamagochi: json['tamagochi'] == null
-          ? null
-          : TamagochiDto.fromJson(json['tamagochi'] as Map<String, dynamic>),
+      id: json['id'] as int,
+      name: json['name'] as String,
+      tamagochi: (json['tamagochi'] as List<dynamic>)
+          .map((e) => e == null
+              ? null
+              : TamagochiDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$UserDtoToJson(UserDto instance) => <String, dynamic>{

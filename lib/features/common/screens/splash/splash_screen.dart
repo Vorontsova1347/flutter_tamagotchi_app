@@ -34,29 +34,31 @@ class _SplashScreenState
       builder: () {
         final logoWidth = 360.0.h;
 
-        return Scaffold(
-          resizeToAvoidBottomInset: false,
-          key: wm.scaffoldKey,
-          backgroundColor: AppColors.deepLemon,
-          body: Center(
-            child: FadeTransition(
-              opacity: wm.fadeController,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppStrings.splashScreenTitleTopText.toUpperCase(),
-                    style: AppTypography.uberBoldBlack,
-                  ),
-                  Text(
-                    AppStrings.splashScreenTitleBottomText.toUpperCase(),
-                    style: AppTypography.uberBoldBlack,
-                  ),
-                  SvgPicture.asset(
-                    AppIcons.splashLogo,
-                    width: logoWidth,
-                  ),
-                ],
+        return SafeArea(
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            key: wm.scaffoldKey,
+            backgroundColor: AppColors.deepLemon,
+            body: Center(
+              child: FadeTransition(
+                opacity: wm.fadeController,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      AppStrings.splashScreenTitleTopText.toUpperCase(),
+                      style: AppTypography.uberBoldBlack,
+                    ),
+                    Text(
+                      AppStrings.splashScreenTitleBottomText.toUpperCase(),
+                      style: AppTypography.uberBoldBlack,
+                    ),
+                    SvgPicture.asset(
+                      AppIcons.splashLogo,
+                      width: logoWidth,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

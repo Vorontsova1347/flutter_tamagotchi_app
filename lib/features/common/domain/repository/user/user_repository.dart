@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tamagochi_app/api/data/access_data/access_data.dart';
 import 'package:tamagochi_app/api/data/login_data/login_data.dart';
 import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
+import 'package:tamagochi_app/api/data/tamagochi_dto/tamagochi_dto.dart';
 import 'package:tamagochi_app/api/data/user_dto/user_dto.dart';
 import 'package:tamagochi_app/api/service/api_client.dart';
 import 'package:tamagochi_app/api/util/dio_error_extension.dart';
@@ -62,10 +63,13 @@ class UserRepository {
       throw Exception('AccesData is empty');
     }
 
-    return client.getUser(
+    final userData = await client.getUser(
       accessData.id!,
       'Bearer ${accessData.access_token!}',
     );
+    if (userData.tamagochi.isEmpty) {
+      userData.tamagochi = [];
+    }
   }
 
   /// Get [UserDto] by id. using [AccessData.access_token] and [id]

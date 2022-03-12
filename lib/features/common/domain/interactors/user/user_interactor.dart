@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:tamagochi_app/api/data/login_data/login_data.dart';
 import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
 import 'package:tamagochi_app/api/data/user_dto/user_dto.dart';
@@ -29,7 +30,8 @@ class UserInteractor {
   /// Tries to get current [User]
   /// always returns [User] (method could be call only after success result of [tryToLogin])
   Future<User> getUser() async {
-    return toUser(await _userRepository.getUserDto());
+    final response = await _userRepository.getUserDto();
+    return toUser(response, );
   }
 
   /// Tries to delete current [User]

@@ -132,7 +132,7 @@ class _AuthBodyWidgetState
                 hintText: AppStrings.passwordHintText.toUpperCase(),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: textfieldHeight / 3,
-                  vertical: textfieldHeight / 10, 
+                  vertical: textfieldHeight / 10,
                 ),
                 counterText: '',
                 focusedBorder: const OutlineInputBorder(),

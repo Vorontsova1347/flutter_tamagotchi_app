@@ -4,21 +4,21 @@ import 'package:tamagochi_app/features/common/domain/entities/user.dart';
 import 'package:tamagochi_app/features/common/domain/mappers/tamagochi_mapper.dart';
 
 /// Converts [UserDto] to [User]
-User toUser(UserDto object) {
+User toUser(UserDto object, int user_id) {
   return User(
     id: object.id ?? -1,
     name: object.name ?? 'unnamed',
     tamagochi: object.tamagochi == null
         ? Tamagochi(
-            sleep: -1,
-            health: -1,
-            game: -1,
-            food: -1,
-            userId: -1,
-            id: -1,
-            generalState: -1,
+            sleep: 0,
+            health: 0,
+            game: 0,
+            food: 0,
+            userId: user_id,
+            id: 0,
+            generalState: 0,
           )
-        : toTamagochi(object.tamagochi!),
+        : toTamagochi(object.tamagochi![0]!),
   );
 }
 
@@ -27,6 +27,6 @@ UserDto toUserDto(User object) {
   return UserDto(
     id: object.id,
     name: object.name,
-    tamagochi: toTamgochiDto(object.tamagochi),
+    tamagochi: [toTamgochiDto(object.tamagochi)],
   );
 }

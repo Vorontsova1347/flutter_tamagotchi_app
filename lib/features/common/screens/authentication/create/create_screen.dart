@@ -54,120 +54,122 @@ class _CreateScreenState
         final sizedBoxTopHeight = 42.h;
         final betweenFieldsHeight = 24.h;
 
-        return Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            toolbarHeight: appBarHeight,
-            backgroundColor: AppColors.transparent,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            leading: GestureDetector(
-              onTap: wm.onArrowBackTap,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: arrowBackPadding),
-                child: SvgPicture.asset(
-                  AppIcons.arrowBack,
+        return SafeArea(
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            appBar: AppBar(
+              toolbarHeight: appBarHeight,
+              backgroundColor: AppColors.transparent,
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              leading: GestureDetector(
+                onTap: wm.onArrowBackTap,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: arrowBackPadding),
+                  child: SvgPicture.asset(
+                    AppIcons.arrowBack,
+                  ),
                 ),
               ),
             ),
-          ),
-          backgroundColor: AppColors.deepLemon,
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  AppIcons.profilePictureNone,
-                  height: logoHeight,
-                  width: logoWidth,
-                ),
-                SizedBox(
-                  height: sizedBoxTopHeight,
-                ),
-                Container(
-                  height: textfieldHeight,
-                  width: textfieldWidth,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(buttonRadius),
+            backgroundColor: AppColors.deepLemon,
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    AppIcons.profilePictureNone,
+                    height: logoHeight,
+                    width: logoWidth,
                   ),
-                  child: TextFormField(
-                    style: AppTypography.normalBoldViolinBrown,
-                    controller: wm.nameTextController,
-                    maxLength: wm.nameTextLengthLimit,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(wm.nameTextLengthLimit),
-                      FilteringTextInputFormatter.allow(
-                        RegExp('[a-z A-Z á-ú Á-Ú]'),
-                      ),
-                    ],
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      hintText: AppStrings.nameHintText.toUpperCase(),
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: textfieldHeight / 3,
-                        vertical: textfieldHeight / 10,
-                      ),
-                      counterText: '',
-                      border: const OutlineInputBorder(),
-                      focusedBorder: const OutlineInputBorder(),
-                      disabledBorder: const OutlineInputBorder(),
-                      enabledBorder: const OutlineInputBorder(),
-                      fillColor: AppColors.deepLemon,
-                      filled: true,
-                    ),
+                  SizedBox(
+                    height: sizedBoxTopHeight,
                   ),
-                ),
-                SizedBox(
-                  height: betweenFieldsHeight,
-                ),
-                StreamedStateBuilder(
-                  streamedState: wm.radioPickState,
-                  builder: (ctx, _) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: wm.onRadioFirstTap,
-                          child: RadioItemWidget(
-                            buttonText: AppStrings.createScreenRadioFirstText
-                                .toUpperCase(),
-                            isSelected: wm.radioPickState.value == null
-                                ? false
-                                : wm.radioPickState.value!,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: wm.onRadioSecondTap,
-                          child: RadioItemWidget(
-                            buttonText: AppStrings.createScreenRadioSecondText
-                                .toUpperCase(),
-                            isSelected: wm.radioPickState.value == null
-                                ? false
-                                : !wm.radioPickState.value!,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                GestureDetector(
-                  onTap: wm.onButtonTap,
-                  child: Container(
-                    height: buttonHeight,
-                    width: buttonWidth,
+                  Container(
+                    height: textfieldHeight,
+                    width: textfieldWidth,
                     decoration: BoxDecoration(
-                      color: AppColors.black,
                       borderRadius: BorderRadius.circular(buttonRadius),
                     ),
-                    child: Center(
-                      child: Text(
-                        AppStrings.createScreenButtonText.toUpperCase(),
-                        style: AppTypography.normalBoldWhite,
+                    child: TextFormField(
+                      style: AppTypography.normalBoldViolinBrown,
+                      controller: wm.nameTextController,
+                      maxLength: wm.nameTextLengthLimit,
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(wm.nameTextLengthLimit),
+                        FilteringTextInputFormatter.allow(
+                          RegExp('[a-z A-Z á-ú Á-Ú]'),
+                        ),
+                      ],
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: AppStrings.nameHintText.toUpperCase(),
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: textfieldHeight / 3,
+                          vertical: textfieldHeight / 10,
+                        ),
+                        counterText: '',
+                        border: const OutlineInputBorder(),
+                        focusedBorder: const OutlineInputBorder(),
+                        disabledBorder: const OutlineInputBorder(),
+                        enabledBorder: const OutlineInputBorder(),
+                        fillColor: AppColors.deepLemon,
+                        filled: true,
                       ),
                     ),
                   ),
-                ),
-              ],
+                  SizedBox(
+                    height: betweenFieldsHeight,
+                  ),
+                  StreamedStateBuilder(
+                    streamedState: wm.radioPickState,
+                    builder: (ctx, _) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: wm.onRadioFirstTap,
+                            child: RadioItemWidget(
+                              buttonText: AppStrings.createScreenRadioFirstText
+                                  .toUpperCase(),
+                              isSelected: wm.radioPickState.value == null
+                                  ? false
+                                  : wm.radioPickState.value!,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: wm.onRadioSecondTap,
+                            child: RadioItemWidget(
+                              buttonText: AppStrings.createScreenRadioSecondText
+                                  .toUpperCase(),
+                              isSelected: wm.radioPickState.value == null
+                                  ? false
+                                  : !wm.radioPickState.value!,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  GestureDetector(
+                    onTap: wm.onButtonTap,
+                    child: Container(
+                      height: buttonHeight,
+                      width: buttonWidth,
+                      decoration: BoxDecoration(
+                        color: AppColors.black,
+                        borderRadius: BorderRadius.circular(buttonRadius),
+                      ),
+                      child: Center(
+                        child: Text(
+                          AppStrings.createScreenButtonText.toUpperCase(),
+                          style: AppTypography.normalBoldWhite,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

@@ -13,6 +13,7 @@ class AppIcons {
 
   static const String splashLogo = '$_basePath/splash_logo.svg';
   static const String arrowBack = '$_basePath/arrow_back.svg';
+  static const String crossExit = '$_basePath/cross_exit.svg';
 
   static const String _basePath = 'assets/icons';
 }

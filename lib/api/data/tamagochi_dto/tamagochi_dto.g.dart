@@ -7,13 +7,13 @@ part of 'tamagochi_dto.dart';
 // **************************************************************************
 
 TamagochiDto _$TamagochiDtoFromJson(Map<String, dynamic> json) => TamagochiDto(
-      sleep: (json['sleep'] as num?)?.toDouble(),
-      health: (json['health'] as num?)?.toDouble(),
-      game: (json['game'] as num?)?.toDouble(),
-      food: (json['food'] as num?)?.toDouble(),
-      user_id: json['user_id'] as int?,
-      id: json['id'] as int?,
-      general_state: (json['general_state'] as num?)?.toDouble(),
+      sleep: (json['sleep'] as num).toDouble(),
+      health: (json['health'] as num).toDouble(),
+      game: (json['game'] as num).toDouble(),
+      food: (json['food'] as num).toDouble(),
+      user_id: json['user_id'] as int,
+      id: json['id'] as int,
+      general_state: (json['general_state'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$TamagochiDtoToJson(TamagochiDto instance) =>

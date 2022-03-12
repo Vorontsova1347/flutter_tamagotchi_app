@@ -4,14 +4,14 @@ part 'user_dto.g.dart';
 
 @JsonSerializable()
 class UserDto {
-  final int? id;
-  final String? name;
-  final TamagochiDto? tamagochi;
+  final int id;
+  final String name;
+  final List<TamagochiDto?> tamagochi;
 
   UserDto({
-    this.id,
-    this.name,
-    this.tamagochi,
+    required this.id,
+    required this.name,
+    required this.tamagochi,
   });
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>

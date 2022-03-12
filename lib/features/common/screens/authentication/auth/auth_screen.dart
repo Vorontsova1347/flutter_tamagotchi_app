@@ -36,50 +36,52 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
         final sizedBoxTopHeight = 42.h;
         final sizedBoxBottomHeight = 18.h;
 
-        return Scaffold(
-          backgroundColor: wm.backgroundColor,
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  wm.logoPath,
-                  height: logoHeight,
-                  width: logoWidth,
-                ),
-                SizedBox(
-                  height: sizedBoxTopHeight,
-                ),
-                GestureDetector(
-                  onTap: wm.onLoginTap,
-                  child: Container(
-                    height: buttonHeight,
-                    width: buttonWidth,
-                    decoration: BoxDecoration(
-                      color: wm.buttonColor,
-                      borderRadius: BorderRadius.circular(buttonRadius),
-                    ),
-                    child: Center(
-                      child: Text(
-                        wm.buttonText,
-                        style: wm.buttonTextStyle,
+        return SafeArea(
+          child: Scaffold(
+            backgroundColor: wm.backgroundColor,
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    wm.logoPath,
+                    height: logoHeight,
+                    width: logoWidth,
+                  ),
+                  SizedBox(
+                    height: sizedBoxTopHeight,
+                  ),
+                  GestureDetector(
+                    onTap: wm.onLoginTap,
+                    child: Container(
+                      height: buttonHeight,
+                      width: buttonWidth,
+                      decoration: BoxDecoration(
+                        color: wm.buttonColor,
+                        borderRadius: BorderRadius.circular(buttonRadius),
+                      ),
+                      child: Center(
+                        child: Text(
+                          wm.buttonText,
+                          style: wm.buttonTextStyle,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: sizedBoxBottomHeight,
-                ),
-                GestureDetector(
-                  onTap: wm.onSignInTap,
-                  child: Center(
-                    child: Text(
-                      wm.underButtonText,
-                      style: wm.underButtonTextStyle,
+                  SizedBox(
+                    height: sizedBoxBottomHeight,
+                  ),
+                  GestureDetector(
+                    onTap: wm.onSignInTap,
+                    child: Center(
+                      child: Text(
+                        wm.underButtonText,
+                        style: wm.underButtonTextStyle,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

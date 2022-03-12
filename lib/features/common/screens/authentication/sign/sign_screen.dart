@@ -34,31 +34,33 @@ class _SignScreenState extends WidgetState<SignScreen, SignScreenWidgetModel> {
         final appBarHeight = 50.0.h;
         final arrowBackPadding = 12.0.r;
 
-        return Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            toolbarHeight: appBarHeight,
-            backgroundColor: AppColors.transparent,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            leading: GestureDetector(
-              onTap: wm.onArrowBackTap,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: arrowBackPadding),
-                child: SvgPicture.asset(
-                  AppIcons.arrowBack,
+        return SafeArea(
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            appBar: AppBar(
+              toolbarHeight: appBarHeight,
+              backgroundColor: AppColors.transparent,
+              elevation: 0,
+              automaticallyImplyLeading: false,
+              leading: GestureDetector(
+                onTap: wm.onArrowBackTap,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: arrowBackPadding),
+                  child: SvgPicture.asset(
+                    AppIcons.arrowBack,
+                  ),
                 ),
               ),
             ),
-          ),
-          backgroundColor: AppColors.deepLemon,
-          body: AuthBodyWidget(
-            isLoginScreen: false,
-            navigator: wm.navigator,
-            loginTextController: wm.loginTextController,
-            passwordTextController: wm.passwordTextController,
-            buttonText: AppStrings.signInScreenButtonText.toUpperCase(),
-            buttonFunction: wm.signUp,
+            backgroundColor: AppColors.deepLemon,
+            body: AuthBodyWidget(
+              isLoginScreen: false,
+              navigator: wm.navigator,
+              loginTextController: wm.loginTextController,
+              passwordTextController: wm.passwordTextController,
+              buttonText: AppStrings.signInScreenButtonText.toUpperCase(),
+              buttonFunction: wm.signUp,
+            ),
           ),
         );
       },

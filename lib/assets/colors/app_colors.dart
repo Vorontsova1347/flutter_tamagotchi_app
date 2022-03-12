@@ -22,4 +22,6 @@ class AppColors {
   static const Color graniteGray = Color.fromRGBO(91, 91, 91, 1);
   static const Color antiFlashWhite = Color.fromRGBO(243, 243, 243, 1);
   static const Color violinBrown = Color.fromRGBO(95, 76, 9, 1);
+  static const Color silverSand = Color.fromRGBO(196, 196, 196, 1);
+  static const Color platinum = Color.fromRGBO(229, 229, 229, 1);
 }

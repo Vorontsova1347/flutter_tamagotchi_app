@@ -4,7 +4,9 @@ import 'package:relation/relation.dart';
 import 'package:surf_injector/surf_injector.dart';
 import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
+import 'package:tamagochi_app/features/common/domain/interactors/tamagochi/tamagochi_interactor.dart';
 import 'package:tamagochi_app/features/common/domain/interactors/user/user_interactor.dart';
+import 'package:tamagochi_app/features/common/domain/repository/tamagochi/tamagochi_repository.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/create/create_screen.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 
@@ -16,6 +18,8 @@ CreateScreenWidgetModel createCreateScreenWidgetModel(
     navigator:
         Injector.of<AppComponent>(context).component.navigator.currentState!,
     userInteractor: Injector.of<AppComponent>(context).component.userInteractor,
+    tamagochiInteractor:
+        Injector.of<AppComponent>(context).component.tamagochiInteractor,
   );
 }
 
@@ -27,10 +31,12 @@ class CreateScreenWidgetModel extends WidgetModel {
   final RegistrationData registrationData;
   final NavigatorState navigator;
   final UserInteractor userInteractor;
+  final TamagochiInteractor tamagochiInteractor;
 
   bool _isLoading = false;
 
   CreateScreenWidgetModel({
+    required this.tamagochiInteractor,
     required this.userInteractor,
     required this.registrationData,
     required this.navigator,
@@ -61,7 +67,8 @@ class CreateScreenWidgetModel extends WidgetModel {
           login: registrationData.name,
           password: registrationData.password,
         )) {
-          await navigator.pushReplacementNamed(AppRouter.mainScreen);
+          await tamagochiInteractor.updateTamagochi(sleep: 0, health: 0, game: 0, food: food)
+          await await navigator.pushReplacementNamed(AppRouter.mainScreen);
         }
       }
       _isLoading = false;

@@ -5,22 +5,22 @@ part 'tamagochi_dto.g.dart';
 
 @JsonSerializable()
 class TamagochiDto {
-  final double? sleep;
-  final double? health;
-  final double? game;
-  final double? food;
-  final int? user_id;
-  final int? id;
-  final double? general_state;
+  final double sleep;
+  final double health;
+  final double game;
+  final double food;
+  final int user_id;
+  final int id;
+  final double general_state;
 
   TamagochiDto({
-    this.sleep,
-    this.health,
-    this.game,
-    this.food,
-    this.user_id,
-    this.id,
-    this.general_state,
+    required this.sleep,
+    required this.health,
+    required this.game,
+    required this.food,
+    required this.user_id,
+    required this.id,
+    required this.general_state,
   });
 
   factory TamagochiDto.fromJson(Map<String, dynamic> json) =>
