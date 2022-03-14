@@ -3,11 +3,11 @@ part 'login_data.g.dart';
 
 @JsonSerializable()
 class LoginData {
-  final String name;
+  final String login;
   final String password;
 
   LoginData({
-    required this.name,
+    required this.login,
     required this.password,
   });
 
@@ -16,7 +16,7 @@ class LoginData {
 
   @override
   String toString() {
-    return 'LoginData: {\n name: $name,\n password: $password,\n}';
+    return 'LoginData: {\n login: $login,\n password: $password,\n}';
   }
 
   Map<String, dynamic> toJson() => _$LoginDataToJson(this);

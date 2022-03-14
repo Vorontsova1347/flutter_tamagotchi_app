@@ -67,4 +67,10 @@ class AppTypography {
     fontSize: 24.0,
     color: AppColors.white,
   );
+  static final mainScreenStatusTextStyle = textBold.copyWith(
+    fontWeight: FontWeight.w600,
+    fontFamily: defaultFontFamily,
+    color: AppColors.black,
+    fontSize: 18.0,
+  );
 }

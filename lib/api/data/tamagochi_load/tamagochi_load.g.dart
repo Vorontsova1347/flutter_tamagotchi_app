@@ -8,10 +8,12 @@ part of 'tamagochi_load.dart';
 
 TamagochiLoad _$TamagochiLoadFromJson(Map<String, dynamic> json) =>
     TamagochiLoad(
-      sleep: (json['sleep'] as num).toDouble(),
-      health: (json['health'] as num).toDouble(),
-      game: (json['game'] as num).toDouble(),
-      food: (json['food'] as num).toDouble(),
+      sleep: (json['sleep'] as num?)?.toDouble(),
+      health: (json['health'] as num?)?.toDouble(),
+      game: (json['game'] as num?)?.toDouble(),
+      food: (json['food'] as num?)?.toDouble(),
+      name: json['name'] as String?,
+      gender: json['gender'] as String?,
     );
 
 Map<String, dynamic> _$TamagochiLoadToJson(TamagochiLoad instance) =>
@@ -20,4 +22,6 @@ Map<String, dynamic> _$TamagochiLoadToJson(TamagochiLoad instance) =>
       'health': instance.health,
       'game': instance.game,
       'food': instance.food,
+      'name': instance.name,
+      'gender': instance.gender,
     };
