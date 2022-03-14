@@ -4,13 +4,15 @@ import 'package:tamagochi_app/features/common/domain/entities/tamagochi.dart';
 /// Converts [TamagochiDto] to [Tamagochi]
 Tamagochi toTamagochi(TamagochiDto object) {
   return Tamagochi(
-    sleep: object.sleep ?? -1,
-    health: object.health ?? -1,
-    game: object.game ?? -1,
-    food: object.food ?? -1,
+    sleep: object.sleep ?? 0,
+    health: object.health ?? 0,
+    game: object.game ?? 0,
+    food: object.food ?? 0,
     userId: object.user_id ?? -1,
     id: object.id ?? -1,
-    generalState: object.general_state ?? -1,
+    gender: object.gender ?? 'neutral',
+    name: object.name ?? 'noname',
+    generalState: object.general_state ?? 0,
   );
 }
 
@@ -23,6 +25,8 @@ TamagochiDto toTamgochiDto(Tamagochi object) {
     food: object.food,
     user_id: object.userId,
     id: object.id,
+    name: object.name,
+    gender: object.gender,
     general_state: object.generalState,
   );
 }

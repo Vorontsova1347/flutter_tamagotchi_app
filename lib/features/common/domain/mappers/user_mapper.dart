@@ -7,16 +7,18 @@ import 'package:tamagochi_app/features/common/domain/mappers/tamagochi_mapper.da
 User toUser(UserDto object) {
   return User(
     id: object.id ?? -1,
-    name: object.name ?? 'unnamed',
+    login: object.login ?? 'nologin',
     tamagochi: object.tamagochi == null
         ? Tamagochi(
-            sleep: -1,
-            health: -1,
-            game: -1,
-            food: -1,
-            userId: -1,
+            sleep: 0,
+            health: 0,
+            game: 0,
+            food: 0,
+            userId: object.id ?? -1,
+            gender: 'neutral',
+            name: 'noname',
             id: -1,
-            generalState: -1,
+            generalState: 0,
           )
         : toTamagochi(object.tamagochi!),
   );
@@ -26,7 +28,7 @@ User toUser(UserDto object) {
 UserDto toUserDto(User object) {
   return UserDto(
     id: object.id,
-    name: object.name,
+    login: object.login,
     tamagochi: toTamgochiDto(object.tamagochi),
   );
 }
