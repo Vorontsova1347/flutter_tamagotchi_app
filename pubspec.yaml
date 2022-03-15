@@ -8,6 +8,7 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  carousel_slider: ^4.0.0
   dio: ^4.0.4
   flutter:
     sdk: flutter
@@ -16,14 +17,11 @@ dependencies:
   flutter_svg: ^1.0.3
   http: ^0.13.4
   json_annotation: ^4.4.0
-  logger: any 
   mwwm: ^2.0.0
   relation: ^3.1.0
-  shared_preferences: ^2.0.7
+  string_validator: ^0.3.0
   surf_injector: ^1.0.0
   surf_util: ^1.0.3
-  string_validator: ^0.3.0
-  tuple: ^2.0.0
 
 
 dev_dependencies:

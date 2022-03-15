@@ -9,7 +9,7 @@ import 'package:tamagochi_app/assets/themes/app_typography.dart';
 import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/common/screens/splash/splash_screen_widget_model.dart';
 
-/// [Widget] of splash screen
+/// [Widget] для splashSreen
 class SplashScreen extends CoreMwwmWidget<SplashScreenWidgetModel> {
   const SplashScreen({
     Key? key,
@@ -23,7 +23,7 @@ class SplashScreen extends CoreMwwmWidget<SplashScreenWidgetModel> {
       _SplashScreenState();
 }
 
-/// [WidgetState] of [SplashScreen]
+/// [WidgetState] для [SplashScreen]
 class _SplashScreenState
     extends WidgetState<SplashScreen, SplashScreenWidgetModel> {
   @override

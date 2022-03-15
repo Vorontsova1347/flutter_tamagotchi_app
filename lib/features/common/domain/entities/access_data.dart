@@ -1,3 +1,4 @@
+/// Сущность данных для доступа
 class AccessData {
   String? get accessToken => _accessToken;
   int? get userId => _userId;

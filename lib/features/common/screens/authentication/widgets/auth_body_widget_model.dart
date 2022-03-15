@@ -1,13 +1,14 @@
+// ignore_for_file: long-parameter-list
+
 import 'package:flutter/material.dart';
 import 'package:mwwm/mwwm.dart';
 import 'package:relation/relation.dart';
-import 'package:tamagochi_app/api/data/login_data/login_data.dart';
-import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
+import 'package:tamagochi_app/api/data/data/login/login_data.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/widgets/auth_body_widget.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 
-/// [WidgetModelBuilder] of [AuthBodyWidgetModel] for [AuthBodyWidget]
-// ignore: long-parameter-list
+
+/// Фабрика для создания [WidgetModel] для [AuthBodyWidget]
 AuthBodyWidgetModel createAuthBodyWidgetModel({
   required String buttonText,
   required TextEditingController loginTextController,
@@ -26,12 +27,13 @@ AuthBodyWidgetModel createAuthBodyWidgetModel({
   );
 }
 
-/// [WidgetModel] for [AuthBodyWidget]
+/// [WidgetModel] для [AuthBodyWidget]
 class AuthBodyWidgetModel extends WidgetModel {
   final NavigatorState navigator;
+  
+  final Future<bool> Function(String login, String password) buttonFunction;
   final TextEditingController loginTextController;
   final TextEditingController passwordTextController;
-  final Future<bool> Function(String login, String password) buttonFunction;
   final bool isLoginScreen;
   final String buttonText;
 

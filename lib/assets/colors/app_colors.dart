@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 /// Набор цветов, используемых в приложении
 /// Для именования цветов используем полученное на сайте

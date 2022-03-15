@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mwwm/mwwm.dart';
 import 'app.dart';
 
-/// [WidgetModelBuilder] of [AppWidgetModel] for [App]
-AppWidgetModel createAppWidgetModel(BuildContext context) {
+/// Фабрика для создания [WidgetModel] для [App]
+AppWidgetModel createAppWidgetModel(BuildContext _) {
   return AppWidgetModel();
 }
 
-/// [WidgetModel] for [App]
+/// [WidgetModel] для [App]
 class AppWidgetModel extends WidgetModel {
   AppWidgetModel() : super(const WidgetModelDependencies());
 }

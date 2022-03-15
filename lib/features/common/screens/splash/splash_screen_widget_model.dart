@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mwwm/mwwm.dart';
 import 'package:surf_injector/surf_injector.dart';
-import 'package:tamagochi_app/assets/res/app_icons.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 import 'splash_screen.dart';
 
-/// [WidgetModelBuilder] of [SplashScreenWidgetModel] for [SplashScreen]
+/// Фабрика для создания [WidgetModel] для [SplashScreen]
 SplashScreenWidgetModel createSplashScreenWidgetModel(BuildContext context) {
   return SplashScreenWidgetModel(
     navigator:
@@ -16,7 +15,7 @@ SplashScreenWidgetModel createSplashScreenWidgetModel(BuildContext context) {
   );
 }
 
-/// [WidgetModel] for [SplashScreen]
+/// [WidgetModel] для [SplashScreen]
 class SplashScreenWidgetModel extends WidgetModel
     with TickerProviderWidgetModelMixin {
   final GlobalKey<ScaffoldState> scaffoldKey;

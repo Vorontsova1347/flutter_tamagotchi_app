@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Temp options to configure [MaterialApp] parameters
+/// Временные параметры для [MaterialApp]
 class DebugOptions {
   static const bool showPerformanceOverlay = false;
   static const bool debugShowMaterialGrid = false;

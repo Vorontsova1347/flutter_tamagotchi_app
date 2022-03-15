@@ -4,7 +4,9 @@ import 'package:surf_injector/surf_injector.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/sign/sign_screen.dart';
 
-/// [WidgetModelBuilder] of [SignScreenWidgetModel] for [SignScreen]
+
+
+/// Фабрика для создания [WidgetModel] для [SignScreen]
 SignScreenWidgetModel createSignScreenWidgetModel(BuildContext context) {
   return SignScreenWidgetModel(
     navigator:
@@ -12,7 +14,7 @@ SignScreenWidgetModel createSignScreenWidgetModel(BuildContext context) {
   );
 }
 
-/// [WidgetModel] for [SignScreen]
+/// [WidgetModel] для [SignScreen]
 class SignScreenWidgetModel extends WidgetModel {
   final loginTextController = TextEditingController();
   final passwordTextController = TextEditingController();

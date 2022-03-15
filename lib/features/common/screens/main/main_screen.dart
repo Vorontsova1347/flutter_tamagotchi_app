@@ -23,7 +23,7 @@ class MainScreen extends CoreMwwmWidget<MainScreenWidgetModel> {
       _MainScreenState();
 }
 
-/// [WidgetState] of [MainScreen]
+/// [WidgetState] для [MainScreen]
 class _MainScreenState extends WidgetState<MainScreen, MainScreenWidgetModel> {
   final crossExitHeight = 48.0.r;
   final crossExitWidth = 48.0.r;
@@ -38,6 +38,8 @@ class _MainScreenState extends WidgetState<MainScreen, MainScreenWidgetModel> {
   final sizeBetweenStatusWidth = 88.0.w;
   final centerLogoWidth = 160.0.w;
   final centerLogoHeight = 160.0.h;
+  final statusButtonsSize = 68.0.r;
+  final newsIconSize = 48.0.r;
 
   @override
   Widget build(BuildContext context) {
@@ -66,16 +68,30 @@ class _MainScreenState extends WidgetState<MainScreen, MainScreenWidgetModel> {
                         )
                       : Column(
                           children: [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: GestureDetector(
-                                onTap: wm.onCrossTap,
-                                child: SvgPicture.asset(
-                                  AppIcons.crossExit,
-                                  height: crossExitHeight,
-                                  width: crossExitWidth,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                GestureDetector(
+                                  onTap: wm.onCrossTap,
+                                  child: SvgPicture.asset(
+                                    AppIcons.crossExit,
+                                    height: crossExitHeight,
+                                    width: crossExitWidth,
+                                  ),
                                 ),
-                              ),
+                                GestureDetector(
+                                  onTap: wm.onNewsTap,
+                                  child: SizedBox(
+                                    height: crossExitHeight,
+                                    width: crossExitHeight,
+                                    child: Icon(
+                                      Icons.mail,
+                                      color: Colors.black,
+                                      size: newsIconSize,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                             SizedBox(height: sizeBetweenStatusAndCross),
                             Text(
@@ -238,24 +254,32 @@ class _MainScreenState extends WidgetState<MainScreen, MainScreenWidgetModel> {
                                   onTap: wm.onGameTap,
                                   child: SvgPicture.asset(
                                     AppIcons.statusGame,
+                                    height: statusButtonsSize,
+                                    width: statusButtonsSize,
                                   ),
                                 ),
                                 GestureDetector(
                                   onTap: wm.onHealthTap,
                                   child: SvgPicture.asset(
                                     AppIcons.statusHealth,
+                                    height: statusButtonsSize,
+                                    width: statusButtonsSize,
                                   ),
                                 ),
                                 GestureDetector(
                                   onTap: wm.onFoodTap,
                                   child: SvgPicture.asset(
                                     AppIcons.statusFood,
+                                    height: statusButtonsSize,
+                                    width: statusButtonsSize,
                                   ),
                                 ),
                                 GestureDetector(
                                   onTap: wm.onSleepTap,
                                   child: SvgPicture.asset(
                                     AppIcons.statusSleep,
+                                    height: statusButtonsSize,
+                                    width: statusButtonsSize,
                                   ),
                                 ),
                               ],

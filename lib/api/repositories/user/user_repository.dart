@@ -1,17 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:tamagochi_app/api/data/access_data_dto/access_data_dto.dart';
-import 'package:tamagochi_app/api/data/login_data/login_data.dart';
-import 'package:tamagochi_app/api/data/password_data/password_data.dart';
-import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
-import 'package:tamagochi_app/api/data/user_dto/user_dto.dart';
-import 'package:tamagochi_app/api/service/api_client.dart';
-import 'package:tamagochi_app/api/util/dio_error_extension.dart';
+import 'package:tamagochi_app/api/data/data/login/login_data.dart';
+import 'package:tamagochi_app/api/data/data/password_update/password_update_data.dart';
+import 'package:tamagochi_app/api/data/data/registration/registration_data.dart';
+import 'package:tamagochi_app/api/data/dto/user/user_dto.dart';
+import 'package:tamagochi_app/api/service/tamagochi_api/tamagochi_api_client.dart';
+import 'package:tamagochi_app/api/util/dio_extensions/custom_to_string.dart';
 import 'package:tamagochi_app/features/common/domain/entities/access_data.dart';
 
-/// Repository for User side of [ApiClient]
+/// Репозиторий под [TamagochiApiClient] для взаимодействия с запросами пользователя
 class UserRepository {
-  final ApiClient client;
+  final TamagochiApiClient client;
   final AccessData accessData;
 
   const UserRepository({
@@ -53,13 +52,13 @@ class UserRepository {
   }
 
   Future<bool> userUpdatePassword({
-    required PasswordData passwordData,
+    required PasswordUpdateData passwordUpdateData,
     required String accessToken,
   }) async {
     try {
       await client.userUpdatePassword(
         'Bearer $accessToken',
-        passwordData,
+        passwordUpdateData,
       );
 
       return true;

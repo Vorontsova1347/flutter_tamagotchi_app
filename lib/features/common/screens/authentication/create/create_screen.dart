@@ -6,8 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mwwm/mwwm.dart';
 import 'package:relation/relation.dart';
-import 'package:tamagochi_app/api/data/login_data/login_data.dart';
-import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
+import 'package:tamagochi_app/api/data/data/login/login_data.dart';
 import 'package:tamagochi_app/assets/colors/app_colors.dart';
 import 'package:tamagochi_app/assets/res/app_icons.dart';
 import 'package:tamagochi_app/assets/strings/app_strings.dart';
@@ -33,7 +32,7 @@ class CreateScreen extends CoreMwwmWidget<CreateScreenWidgetModel> {
       _CreateScreenState();
 }
 
-/// [WidgetState] of [CreateScreen]
+/// [WidgetState] для [CreateScreen]
 class _CreateScreenState
     extends WidgetState<CreateScreen, CreateScreenWidgetModel> {
   @override

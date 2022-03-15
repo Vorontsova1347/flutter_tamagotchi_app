@@ -9,7 +9,7 @@ import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/login/login_screen_widget_model.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/widgets/auth_body_widget.dart';
 
-/// [Widget] of splash screen
+/// [Widget] для splash screen
 class LoginScreen extends CoreMwwmWidget<LoginScreenWidgetModel> {
   const LoginScreen({
     Key? key,
@@ -23,7 +23,7 @@ class LoginScreen extends CoreMwwmWidget<LoginScreenWidgetModel> {
       _LoginScreenState();
 }
 
-/// [WidgetState] of [LoginScreen]
+/// [WidgetState] для [LoginScreen]
 class _LoginScreenState
     extends WidgetState<LoginScreen, LoginScreenWidgetModel> {
   @override
