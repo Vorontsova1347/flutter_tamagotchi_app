@@ -9,6 +9,7 @@ import 'package:surf_injector/surf_injector.dart';
 import 'package:tamagochi_app/features/app/app.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 
+/// Корневая функция запуска приложения
 Future<void> runApplication() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
@@ -24,9 +25,7 @@ Future<void> runApplication() async {
   );
 }
 
-/// All the dependencies and instances, used in whole app, should be initialized here
-// ignore: avoid_void_async
+/// Здесь происходит вся инициализация ан этапе запуска приложения
 Future<void> _init() async {
-  // Orientation freeze
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }

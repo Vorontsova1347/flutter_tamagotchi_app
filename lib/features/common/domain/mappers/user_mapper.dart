@@ -1,9 +1,9 @@
-import 'package:tamagochi_app/api/data/user_dto/user_dto.dart';
+import 'package:tamagochi_app/api/data/dto/user/user_dto.dart';
 import 'package:tamagochi_app/features/common/domain/entities/tamagochi.dart';
 import 'package:tamagochi_app/features/common/domain/entities/user.dart';
 import 'package:tamagochi_app/features/common/domain/mappers/tamagochi_mapper.dart';
 
-/// Converts [UserDto] to [User]
+/// Конвертирует [UserDto] в [User]
 User toUser(UserDto object) {
   return User(
     id: object.id ?? -1,
@@ -24,7 +24,7 @@ User toUser(UserDto object) {
   );
 }
 
-/// Converts [User] to [UserDto]
+/// Конвертирует [User] в [UserDto]
 UserDto toUserDto(User object) {
   return UserDto(
     id: object.id,

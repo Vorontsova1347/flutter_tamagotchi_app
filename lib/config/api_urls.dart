@@ -1,12 +1,12 @@
-import 'package:tamagochi_app/api/service/api_client.dart';
+import 'package:tamagochi_app/api/service/tamagochi_api/tamagochi_api_client.dart';
 
-/// Options to configure [ApiClient] methods
-/// put - updates existing data
-/// post - add new data
-/// delete - delete data
-/// get - get data
-///
+/// Параметры для задания методов в [TamagochiApiClient]
+//. put - обновляет существующие данные
+/// post - добавляет новые данные
+/// delete - удаляет данные
+/// get - получает данные
 class ApiUrls {
+  // Пользователь:
   static const String userBase = '/user';
 
   static const String userGetList = userBase;
@@ -16,6 +16,7 @@ class ApiUrls {
   static const String userGetById = '$userBase/{user_id}';
   static const String userDeleteById = '$userBase/{user_id}';
 
+  // Тамагочи:
   static const String tamagochiBase = '/tamagochi';
 
   static const String tamagochiPut = tamagochiBase;
@@ -24,6 +25,7 @@ class ApiUrls {
   static const String tamagochiPostHealth = '$tamagochiBase/health';
   static const String tamagochiPostSleep = '$tamagochiBase/sleep';
 
+  // Картинки:
   static const String imageBase = '/image_data';
 
   static const String imageGetList = imageBase;

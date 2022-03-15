@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:tamagochi_app/api/data/tamagochi_dto/tamagochi_dto.dart';
-import 'package:tamagochi_app/api/data/tamagochi_load/tamagochi_load.dart';
-import 'package:tamagochi_app/api/service/api_client.dart';
-import 'package:tamagochi_app/api/util/dio_error_extension.dart';
+import 'package:tamagochi_app/api/data/dto/tamagochi/tamagochi_dto.dart';
+import 'package:tamagochi_app/api/data/load/tamagochi/tamagochi_load.dart';
+import 'package:tamagochi_app/api/service/tamagochi_api/tamagochi_api_client.dart';
+import 'package:tamagochi_app/api/util/dio_extensions/custom_to_string.dart';
 import 'package:tamagochi_app/features/common/domain/entities/access_data.dart';
 
-/// Repository for Tamagochi side of [ApiClient]
+/// Репозиторий под [TamagochiApiClient] для взаимодействия с запросами тамагочи 
 class TamagochiRepository {
-  final ApiClient client;
+  final TamagochiApiClient client;
   final AccessData accessData;
 
   const TamagochiRepository({

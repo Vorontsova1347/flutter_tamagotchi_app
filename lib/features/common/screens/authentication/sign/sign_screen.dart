@@ -9,7 +9,7 @@ import 'package:tamagochi_app/config/screen_util_options.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/sign/sign_screen_widget_model.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/widgets/auth_body_widget.dart';
 
-/// [Widget] of splash screen
+/// [Widget] для splash screen
 class SignScreen extends CoreMwwmWidget<SignScreenWidgetModel> {
   const SignScreen({
     Key? key,
@@ -23,7 +23,7 @@ class SignScreen extends CoreMwwmWidget<SignScreenWidgetModel> {
       _SignScreenState();
 }
 
-/// [WidgetState] of [SignScreen]
+/// [WidgetState] для [SignScreen]
 class _SignScreenState extends WidgetState<SignScreen, SignScreenWidgetModel> {
   @override
   Widget build(BuildContext context) {

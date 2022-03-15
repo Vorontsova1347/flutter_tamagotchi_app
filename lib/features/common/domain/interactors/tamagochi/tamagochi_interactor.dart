@@ -3,7 +3,7 @@ import 'package:tamagochi_app/features/common/domain/entities/access_data.dart';
 import 'package:tamagochi_app/features/common/domain/entities/tamagochi.dart';
 import 'package:tamagochi_app/features/common/domain/mappers/tamagochi_mapper.dart';
 
-/// Interactor for [TamagochiRepository]
+/// Интерактор для[TamagochiRepository]
 class TamagochiInteractor {
   final TamagochiRepository tamagochiRepository;
   final AccessData accessData;

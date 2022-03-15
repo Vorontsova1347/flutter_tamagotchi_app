@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tamagochi_app/api/data/login_data/login_data.dart';
-import 'package:tamagochi_app/api/data/registration_data/registration_data.dart';
+import 'package:tamagochi_app/api/data/data/login/login_data.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/auth/auth_screen_route.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/create/create_screen_route.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/login/login_screen_route.dart';
 import 'package:tamagochi_app/features/common/screens/authentication/sign/sign_screen_route.dart';
 import 'package:tamagochi_app/features/common/screens/main/main_screen_route.dart';
 import 'package:tamagochi_app/features/common/screens/splash/splash_screen_route.dart';
-import 'package:tuple/tuple.dart';
 
+/// Класс для получения всех экранов
 class AppRouter {
   static const String splashScreen = '/';
   static const String authScreen = '/auth';

@@ -1,7 +1,7 @@
-import 'package:tamagochi_app/api/data/tamagochi_dto/tamagochi_dto.dart';
+import 'package:tamagochi_app/api/data/dto/tamagochi/tamagochi_dto.dart';
 import 'package:tamagochi_app/features/common/domain/entities/tamagochi.dart';
 
-/// Converts [TamagochiDto] to [Tamagochi]
+/// Конвертирует [TamagochiDto] в [Tamagochi]
 Tamagochi toTamagochi(TamagochiDto object) {
   return Tamagochi(
     sleep: object.sleep ?? 0,
@@ -16,7 +16,7 @@ Tamagochi toTamagochi(TamagochiDto object) {
   );
 }
 
-/// Converts [Tamagochi] to [TamagochiDto]
+/// Конвертирует [Tamagochi] в [TamagochiDto]
 TamagochiDto toTamgochiDto(Tamagochi object) {
   return TamagochiDto(
     sleep: object.sleep,

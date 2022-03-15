@@ -3,7 +3,6 @@ import 'package:tamagochi_app/assets/colors/app_colors.dart';
 
 const defaultFontFamily = 'Righteous';
 
-///TODO(svetlana): update temp textStyle
 /// Стили текста.
 class AppTypography {
   static const textNormal = TextStyle(

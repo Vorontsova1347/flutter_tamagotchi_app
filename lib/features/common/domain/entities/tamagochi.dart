@@ -1,6 +1,4 @@
-import 'package:tamagochi_app/api/data/tamagochi_dto/tamagochi_dto.dart';
-
-/// [TamagochiDto] model
+/// Сущность тамагочи
 class Tamagochi {
   final double sleep;
   final double health;

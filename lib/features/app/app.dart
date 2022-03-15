@@ -1,3 +1,5 @@
+
+
 // ignore_for_file: avoid_redundant_argument_values
 
 import 'package:flutter/material.dart';
@@ -9,7 +11,7 @@ import 'package:tamagochi_app/features/app/app_widget_model.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 
-/// [Widget] of app
+/// [Widget] приложения
 class App extends CoreMwwmWidget<AppWidgetModel> {
   const App({Key? key})
       : super(
@@ -21,7 +23,7 @@ class App extends CoreMwwmWidget<AppWidgetModel> {
   WidgetState<App, AppWidgetModel> createWidgetState() => _AppState();
 }
 
-/// [WidgetState] of [App]
+/// [WidgetState] для [App]
 class _AppState extends WidgetState<App, AppWidgetModel> {
   @override
   Widget build(BuildContext context) {

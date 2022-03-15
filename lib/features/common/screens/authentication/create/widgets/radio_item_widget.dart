@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamagochi_app/assets/colors/app_colors.dart';
 import 'package:tamagochi_app/assets/themes/app_typography.dart';
 
+// Радио-кнопка выбора пола
 class RadioItemWidget extends StatelessWidget {
   final String buttonText;
   final bool isSelected;

@@ -43,7 +43,7 @@ class AuthBodyWidget extends CoreMwwmWidget<AuthBodyWidgetModel> {
       _AuthBodyWidgetState();
 }
 
-/// [WidgetState] of [AuthBodyWidget
+/// [WidgetState] для [AuthBodyWidget
 class _AuthBodyWidgetState
     extends WidgetState<AuthBodyWidget, AuthBodyWidgetModel> {
   @override
