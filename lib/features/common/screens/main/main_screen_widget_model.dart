@@ -5,6 +5,7 @@ import 'package:mwwm/mwwm.dart';
 import 'package:relation/relation.dart';
 import 'package:surf_injector/surf_injector.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
+import 'package:tamagochi_app/features/common/domain/entities/image_data.dart';
 import 'package:tamagochi_app/features/common/domain/entities/tamagochi.dart';
 import 'package:tamagochi_app/features/common/domain/interactors/image_data/image_data_interactor.dart';
 import 'package:tamagochi_app/features/common/domain/interactors/tamagochi/tamagochi_interactor.dart';
@@ -108,9 +109,14 @@ class MainScreenWidgetModel extends WidgetModel {
       await showNewsDialog(
         buildContext,
         await imageDataInteractor.getAllImages(),
+        _openNewsScreen,
       );
       isNewsLoading = false;
     }
+  }
+
+  Future<void> _openNewsScreen(ImageData imageData) async {
+    await navigator.pushReplacementNamed(AppRouter.newsScreen, arguments: imageData);
   }
 
   Future<void> _updateTamagchi() async {

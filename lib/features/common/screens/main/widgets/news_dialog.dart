@@ -9,8 +9,9 @@ import 'package:tamagochi_app/features/common/domain/entities/image_data.dart';
 
 // Окно новостей с картинками
 Future<void> showNewsDialog(
-  BuildContext context,
-  List<ImageData> newsData,
+    BuildContext context,
+    List<ImageData> newsData,
+    Function(ImageData imageData) onNewsTap,
 ) async {
   final contentHeight = 800.0.h;
   final contentWidth = 360.0.w;
@@ -40,29 +41,34 @@ Future<void> showNewsDialog(
                 : CarouselSlider.builder(
                     itemCount: newsData.length,
                     itemBuilder: (ctx, index, _) {
-                      return Center(
-                        child: Image.network(
-                          newsData[index].url,
-                          fit: BoxFit.cover,
-                          height: contentHeight,
-                          loadingBuilder: (
-                            context,
-                            child,
-                            loadingProgress,
-                          ) {
-                            if (loadingProgress == null) return child;
+                      return GestureDetector(
+                        onTap: () {
+                          onNewsTap(newsData[index]);
+                        },
+                        child: Center(
+                          child: Image.network(
+                            newsData[index].url,
+                            fit: BoxFit.cover,
+                            height: contentHeight,
+                            loadingBuilder: (
+                              context,
+                              child,
+                              loadingProgress,
+                            ) {
+                              if (loadingProgress == null) return child;
 
-                            return Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.black,
-                                value: loadingProgress.expectedTotalBytes !=
-                                        null
-                                    ? loadingProgress.cumulativeBytesLoaded /
-                                        loadingProgress.expectedTotalBytes!
-                                    : null,
-                              ),
-                            );
-                          },
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColors.black,
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       );
                     },
