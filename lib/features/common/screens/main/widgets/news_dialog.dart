@@ -44,7 +44,7 @@ Future<void> showNewsDialog(
                     itemBuilder: (ctx, index, _) {
                       return Center(
                         child: GestureDetector(
-                          onTap: () { Navigator.of(context).pushNamed(AppRouter.newsScreen, arguments: newsData[index]); },
+                          onTap: () { Navigator.of(context).pushNamed(AppRouter.newsScreen, arguments: newsData[index].id); },
                           child: Image.network(
                             newsData[index].url,
                             fit: BoxFit.cover,

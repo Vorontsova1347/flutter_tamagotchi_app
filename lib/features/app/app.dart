@@ -1,5 +1,3 @@
-
-
 // ignore_for_file: avoid_redundant_argument_values
 
 import 'package:flutter/material.dart';
@@ -10,6 +8,7 @@ import 'package:tamagochi_app/assets/themes/app_themes.dart';
 import 'package:tamagochi_app/config/debug_options.dart';
 import 'package:tamagochi_app/features/app/app_widget_model.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
+import 'package:tamagochi_app/features/common/screens/news/news_screen_route.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
 
 import '../../config/onesignal.dart';
@@ -28,6 +27,8 @@ class App extends CoreMwwmWidget<AppWidgetModel> {
 
 /// [WidgetState] для [App]
 class _AppState extends WidgetState<App, AppWidgetModel> {
+  Uri? url;
+
   @override
   void initState() {
     super.initState();
@@ -46,15 +47,25 @@ class _AppState extends WidgetState<App, AppWidgetModel> {
       showSemanticsDebugger: DebugOptions.showSemanticsDebugger,
       debugShowCheckedModeBanner: DebugOptions.debugShowCheckedModeBanner,
       initialRoute: AppRouter.splashScreen,
-      onGenerateRoute: (routeSettings) =>
-          AppRouter.routes[routeSettings.name]!(routeSettings.arguments),
+      onGenerateRoute: (routeSettings) {
+        if (routeSettings.name != null &&
+            routeSettings.name!.contains(AppRouter.newsScreen)) {
+          final uri = Uri.parse(routeSettings.name!);
+          final newsId = int.tryParse(uri.pathSegments.last) ??
+              routeSettings.arguments as int?;
+
+          return newsId != null
+              ? NewsScreenRoute(newsId)
+              : AppRouter.routes[AppRouter.authScreen]!(null);
+        }
+
+        return AppRouter.routes[routeSettings.name]!(routeSettings.arguments);
+      },
     );
   }
 
   Future<void> initPlatformState() async {
     await OneSignal.shared.setAppId(oneSignalAppId);
-    await OneSignal.shared
-        .promptUserForPushNotificationPermission()
-        .then((accepted) {});
+    await OneSignal.shared.promptUserForPushNotificationPermission();
   }
 }

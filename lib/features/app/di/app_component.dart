@@ -37,6 +37,7 @@ class AppComponent extends Component {
   );
   late final imageDataRepository = ImageDataRepository(
     apiClient: _apiClient,
+    accessData: _accessData,
   );
   late final tamagochiRepository = TamagochiRepository(
     accessData: _accessData,

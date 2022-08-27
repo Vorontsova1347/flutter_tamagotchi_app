@@ -18,7 +18,7 @@ class AppRouter {
   static const String signInScreen = '$authScreen/signin';
   static const String createScreen = '$signInScreen/create';
   static const String mainScreen = '/main';
-  static const String newsScreen = '/news';
+  static const String newsScreen = '/image_data';
 
   static final Map<String, Route Function(Object?)> routes = {
     splashScreen: (_) => SplashScreenRoute(),
@@ -27,6 +27,5 @@ class AppRouter {
     signInScreen: (_) => SignScreenRoute(),
     createScreen: (obj) => CreateScreenRoute(obj as LoginData),
     mainScreen: (_) => MainScreenRoute(),
-    newsScreen: (data) => NewsScreenRoute(data as ImageData),
   };
 }

@@ -8,7 +8,13 @@ class ImageDataInteractor {
 
   ImageDataInteractor({required this.imageDataRepository});
 
+  String generateLinkOnNews(int id) => imageDataRepository.generateLinkOnNews(id);
+
   Future<List<ImageData>> getAllImages() async {
     return (await imageDataRepository.imageGetList()).map(toImageData).toList();
+  }
+
+  Future<ImageData> getImageById(int id) async {
+    return toImageData(await imageDataRepository.imageGetById(id));
   }
 }
