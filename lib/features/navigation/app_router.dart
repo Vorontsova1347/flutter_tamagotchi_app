@@ -7,6 +7,9 @@ import 'package:tamagochi_app/features/common/screens/authentication/sign/sign_s
 import 'package:tamagochi_app/features/common/screens/main/main_screen_route.dart';
 import 'package:tamagochi_app/features/common/screens/splash/splash_screen_route.dart';
 
+import '../common/domain/entities/image_data.dart';
+import '../common/screens/news/news_screen_route.dart';
+
 /// Класс для получения всех экранов
 class AppRouter {
   static const String splashScreen = '/';
@@ -15,6 +18,7 @@ class AppRouter {
   static const String signInScreen = '$authScreen/signin';
   static const String createScreen = '$signInScreen/create';
   static const String mainScreen = '/main';
+  static const String newsScreen = '/news';
 
   static final Map<String, Route Function(Object?)> routes = {
     splashScreen: (_) => SplashScreenRoute(),
@@ -23,5 +27,6 @@ class AppRouter {
     signInScreen: (_) => SignScreenRoute(),
     createScreen: (obj) => CreateScreenRoute(obj as LoginData),
     mainScreen: (_) => MainScreenRoute(),
+    newsScreen: (data) => NewsScreenRoute(data as ImageData),
   };
 }

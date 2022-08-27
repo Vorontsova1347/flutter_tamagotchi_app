@@ -7,6 +7,8 @@ import 'package:tamagochi_app/assets/colors/app_colors.dart';
 import 'package:tamagochi_app/assets/themes/app_typography.dart';
 import 'package:tamagochi_app/features/common/domain/entities/image_data.dart';
 
+import '../../../../navigation/app_router.dart';
+
 // Окно новостей с картинками
 Future<void> showNewsDialog(
   BuildContext context,
@@ -41,28 +43,31 @@ Future<void> showNewsDialog(
                     itemCount: newsData.length,
                     itemBuilder: (ctx, index, _) {
                       return Center(
-                        child: Image.network(
-                          newsData[index].url,
-                          fit: BoxFit.cover,
-                          height: contentHeight,
-                          loadingBuilder: (
-                            context,
-                            child,
-                            loadingProgress,
-                          ) {
-                            if (loadingProgress == null) return child;
+                        child: GestureDetector(
+                          onTap: () { Navigator.of(context).pushNamed(AppRouter.newsScreen, arguments: newsData[index]); },
+                          child: Image.network(
+                            newsData[index].url,
+                            fit: BoxFit.cover,
+                            height: contentHeight,
+                            loadingBuilder: (
+                              context,
+                              child,
+                              loadingProgress,
+                            ) {
+                              if (loadingProgress == null) return child;
 
-                            return Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.black,
-                                value: loadingProgress.expectedTotalBytes !=
-                                        null
-                                    ? loadingProgress.cumulativeBytesLoaded /
-                                        loadingProgress.expectedTotalBytes!
-                                    : null,
-                              ),
-                            );
-                          },
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColors.black,
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       );
                     },
