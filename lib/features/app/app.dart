@@ -4,12 +4,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:mwwm/mwwm.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:surf_injector/surf_injector.dart';
 import 'package:tamagochi_app/assets/themes/app_themes.dart';
 import 'package:tamagochi_app/config/debug_options.dart';
 import 'package:tamagochi_app/features/app/app_widget_model.dart';
 import 'package:tamagochi_app/features/app/di/app_component.dart';
 import 'package:tamagochi_app/features/navigation/app_router.dart';
+
+import '../../config/onesignal.dart';
 
 /// [Widget] приложения
 class App extends CoreMwwmWidget<AppWidgetModel> {
@@ -26,6 +29,12 @@ class App extends CoreMwwmWidget<AppWidgetModel> {
 /// [WidgetState] для [App]
 class _AppState extends WidgetState<App, AppWidgetModel> {
   @override
+  void initState() {
+    super.initState();
+    initPlatformState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: defaultTheme,
@@ -40,5 +49,12 @@ class _AppState extends WidgetState<App, AppWidgetModel> {
       onGenerateRoute: (routeSettings) =>
           AppRouter.routes[routeSettings.name]!(routeSettings.arguments),
     );
+  }
+
+  Future<void> initPlatformState() async {
+    await OneSignal.shared.setAppId(oneSignalAppId);
+    await OneSignal.shared
+        .promptUserForPushNotificationPermission()
+        .then((accepted) {});
   }
 }
