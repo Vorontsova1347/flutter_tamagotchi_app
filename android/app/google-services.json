@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1043679224994",
+    "project_id": "tamagotchi-app",
+    "storage_bucket": "tamagotchi-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043679224994:android:db47f347e9b587de3fe3fb",
+        "android_client_info": {
+          "package_name": "ru.vsu.flutter_tamagotchi_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043679224994-j0bojp6bt7r7vn2jltr3pkr9ll905bdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkLzTRO7RFygzpl9WYWj8EZvoef1szikg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043679224994-j0bojp6bt7r7vn2jltr3pkr9ll905bdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
