@@ -34,6 +34,7 @@ class _LoginScreenState
       builder: () {
         final appBarHeight = 50.0.h;
         final arrowBackPadding = 12.0.r;
+        final bottom = MediaQuery.of(context).viewInsets.bottom;
 
         return SafeArea(
           child: Scaffold(
@@ -54,13 +55,16 @@ class _LoginScreenState
               ),
             ),
             backgroundColor: AppColors.deepLemon,
-            body: AuthBodyWidget(
-              isLoginScreen: true,
-              navigator: wm.navigator,
-              loginTextController: wm.loginTextController,
-              passwordTextController: wm.passwordTextController,
-              buttonText: AppStrings.loginScreenButtonText.toUpperCase(),
-              buttonFunction: wm.loginUp,
+            body: Padding(
+              padding: EdgeInsets.only(bottom: bottom),
+              child: AuthBodyWidget(
+                isLoginScreen: true,
+                navigator: wm.navigator,
+                loginTextController: wm.loginTextController,
+                passwordTextController: wm.passwordTextController,
+                buttonText: AppStrings.loginScreenButtonText.toUpperCase(),
+                buttonFunction: wm.loginUp,
+              ),
             ),
           ),
         );

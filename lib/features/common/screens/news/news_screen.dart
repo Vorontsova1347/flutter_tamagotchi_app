@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mwwm/mwwm.dart';
@@ -29,6 +31,8 @@ class NewsScreen extends CoreMwwmWidget<NewsScreenWidgetModel> {
 class _NewsScreenState extends WidgetState<NewsScreen, NewsScreenWidgetModel> {
   @override
   Widget build(BuildContext context) {
+    log('A/B test color: ${wm.firebaseBackgroundColor}');
+
     return ScreenUtilInit(
       designSize: ScreenUtilOptions.designSize,
       minTextAdapt: ScreenUtilOptions.defaultMinTextAdapt,
@@ -47,15 +51,18 @@ class _NewsScreenState extends WidgetState<NewsScreen, NewsScreenWidgetModel> {
                   if (data != null)
                     IconButton(
                       onPressed: () {
-                        Share.share('News ${wm.data.value!.id}',
-                            subject: wm.generateLinkOnNews,
+                        Share.share(
+                          'News ${wm.data.value!.id}',
+                          subject: wm.generateLinkOnNews,
                         );
                       },
                       icon: const Icon(Icons.share),
                     ),
                 ],
               ),
-              backgroundColor: AppColors.deepLemon,
+              backgroundColor: wm.firebaseBackgroundColor == 'red'
+                  ? AppColors.candyAppleRed
+                  : AppColors.deepLemon,
               body: Center(
                 child: data == null
                     ? const CircularProgressIndicator()

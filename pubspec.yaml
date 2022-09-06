@@ -1,6 +1,6 @@
 name: tamagochi_app
 description: Tamagochi app.
-
+# .well-known/assetlinks.json
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -12,6 +12,7 @@ dependencies:
   dio: ^4.0.4
   firebase_core: ^1.21.1
 
+  firebase_remote_config: ^2.0.16
   flutter:
     sdk: flutter
 

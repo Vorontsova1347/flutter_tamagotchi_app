@@ -79,6 +79,7 @@ class _AuthBodyWidgetState
             ),
             child: TextFormField(
               style: AppTypography.normalBoldViolinBrown,
+              scrollPadding: EdgeInsets.only(bottom:40),
               controller: wm.loginTextController,
               maxLength: wm.loginTextLengthLimit,
               inputFormatters: [
@@ -115,6 +116,7 @@ class _AuthBodyWidgetState
             ),
             child: TextFormField(
               style: AppTypography.normalBoldViolinBrown,
+              scrollPadding: EdgeInsets.only(bottom:40),
               controller: wm.passwordTextController,
               maxLength: wm.passwordTextLengthLimit,
               inputFormatters: [

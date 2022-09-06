@@ -85,7 +85,7 @@ class _MainScreenState extends WidgetState<MainScreen, MainScreenWidgetModel> {
                                     height: crossExitHeight,
                                     width: crossExitHeight,
                                     child: Icon(
-                                      Icons.mail,
+                                      Icons.notifications,
                                       color: Colors.black,
                                       size: newsIconSize,
                                     ),

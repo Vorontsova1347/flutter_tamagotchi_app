@@ -33,6 +33,7 @@ class _SignScreenState extends WidgetState<SignScreen, SignScreenWidgetModel> {
       builder: () {
         final appBarHeight = 50.0.h;
         final arrowBackPadding = 12.0.r;
+        final bottom = MediaQuery.of(context).viewInsets.bottom;
 
         return SafeArea(
           child: Scaffold(
@@ -53,13 +54,16 @@ class _SignScreenState extends WidgetState<SignScreen, SignScreenWidgetModel> {
               ),
             ),
             backgroundColor: AppColors.deepLemon,
-            body: AuthBodyWidget(
-              isLoginScreen: false,
-              navigator: wm.navigator,
-              loginTextController: wm.loginTextController,
-              passwordTextController: wm.passwordTextController,
-              buttonText: AppStrings.signInScreenButtonText.toUpperCase(),
-              buttonFunction: wm.signUp,
+            body: Padding(
+              padding: EdgeInsets.only(bottom: bottom),
+              child: AuthBodyWidget(
+                isLoginScreen: false,
+                navigator: wm.navigator,
+                loginTextController: wm.loginTextController,
+                passwordTextController: wm.passwordTextController,
+                buttonText: AppStrings.signInScreenButtonText.toUpperCase(),
+                buttonFunction: wm.signUp,
+              ),
             ),
           ),
         );

@@ -7,9 +7,6 @@ import 'package:tamagochi_app/features/common/screens/authentication/sign/sign_s
 import 'package:tamagochi_app/features/common/screens/main/main_screen_route.dart';
 import 'package:tamagochi_app/features/common/screens/splash/splash_screen_route.dart';
 
-import '../common/domain/entities/image_data.dart';
-import '../common/screens/news/news_screen_route.dart';
-
 /// Класс для получения всех экранов
 class AppRouter {
   static const String splashScreen = '/';
