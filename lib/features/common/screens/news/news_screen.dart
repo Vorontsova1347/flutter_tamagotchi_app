@@ -46,7 +46,9 @@ class _NewsScreenState extends WidgetState<NewsScreen, NewsScreenWidgetModel> {
                 elevation: 0,
                 title: data == null
                     ? const Text('Still loading...')
-                    : Text('News ${wm.data.value!.id}'),
+                    : (wm.data.value?.title != null
+                        ? Text(wm.data.value!.title!)
+                        : Text('News ${wm.data.value!.id}')),
                 actions: [
                   if (data != null)
                     IconButton(
@@ -66,7 +68,13 @@ class _NewsScreenState extends WidgetState<NewsScreen, NewsScreenWidgetModel> {
               body: Center(
                 child: data == null
                     ? const CircularProgressIndicator()
-                    : Image.network(wm.data.value!.url),
+                    : Column(
+                        children: [
+                          Image.network(wm.data.value!.url),
+                          if (wm.data.value?.text != null)
+                            Text(wm.data.value!.text!),
+                        ],
+                      ),
               ),
             ),
           ),

@@ -6,10 +6,17 @@ ImageData toImageData(ImageDataDto object) {
   return ImageData(
     url: object.url,
     id: object.id,
+    title: object.title,
+    text: object.text,
   );
 }
 
 /// Конвертирует [ImageData] в [ImageDataDto]
 ImageDataDto toImageDataDto(ImageData object) {
-  return ImageDataDto(id: object.id, url: object.url);
+  return ImageDataDto(
+    id: object.id,
+    url: object.url,
+    title: object.title,
+    text: object.text,
+  );
 }

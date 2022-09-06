@@ -6,10 +6,14 @@ part 'image_data_dto.g.dart';
 class ImageDataDto {
   final int id;
   final String url;
+  final String? title;
+  final String? text;
 
   ImageDataDto({
     required this.id,
     required this.url,
+    this.title,
+    this.text,
   });
 
   factory ImageDataDto.fromJson(Map<String, dynamic> json) =>
