@@ -38,7 +38,7 @@ class NewsScreenWidgetModel extends WidgetModel {
 
   final data = StreamedState<ImageData?>(null);
 
-  String get generateLinkOnNews => '';
+  String get generateLinkOnNews => imageDataInteractor.generateLinkOnNews(id);
 
   NewsScreenWidgetModel({
     required this.firebaseBackgroundColor,

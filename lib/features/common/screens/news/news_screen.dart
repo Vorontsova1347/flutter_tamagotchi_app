@@ -52,7 +52,7 @@ class _NewsScreenState extends WidgetState<NewsScreen, NewsScreenWidgetModel> {
                     IconButton(
                       onPressed: () {
                         Share.share(
-                          'News ${wm.data.value!.id}',
+                          wm.generateLinkOnNews,
                           subject: wm.generateLinkOnNews,
                         );
                       },

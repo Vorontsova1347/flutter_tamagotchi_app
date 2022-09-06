@@ -12,7 +12,7 @@ class ImageDataRepository {
   ImageDataRepository({required this.apiClient, required this.accessData});
 
   String generateLinkOnNews(int id) =>
-      Uri.https(ApiUrls.defautlDioUrl, '${ApiUrls.imageBase}/$id').toString();
+      Uri.https(ApiUrls.defautlDioUrl.replaceAll('https://', ''), '${ApiUrls.imageBase}/$id').toString();
 
   Future<List<ImageDataDto>> imageGetList() {
     return apiClient.imageGetList();
