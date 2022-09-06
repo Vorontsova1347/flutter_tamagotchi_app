@@ -90,5 +90,5 @@ class CreateScreenWidgetModel extends WidgetModel {
 
   String _getName() => nameTextController.value.text;
 
-  String _getGender() => radioPickState.value != null ? 'Boy' : 'Girl';
+  String _getGender() => radioPickState.value == true ? 'Boy' : 'Girl';
 }
